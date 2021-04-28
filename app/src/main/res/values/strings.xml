@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Wada Easy</string>
+    <string name="SignUP">Sign Up</string>
+    <string name="Firstname">First name</string>
+    <string name="Lastname">Last Name</string>
+    <string name="Email">Email</string>
+    <string name="password">Password</string>
+    <string name="ConfirmPassword">Confirm Password</string>
+    <string name="Login">Login</string>
+    <string name="APPname">වැඩ Easy</string>
+    <string name="accouthave">Already have an Account Login</string>
+    <string name="haventaccountmsg">Do not have an account yet?  Sign Up</string>
+</resources>

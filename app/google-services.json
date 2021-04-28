@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "984747536753",
+    "firebase_url": "https://wedaeasy-default-rtdb.firebaseio.com",
+    "project_id": "wedaeasy",
+    "storage_bucket": "wedaeasy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984747536753:android:56f2287e7c800cfe7b86d0",
+        "android_client_info": {
+          "package_name": "com.example.wadaeasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984747536753-dcpe9l4h8ei9od9vbmnnm3vs2c42uk8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEgCSjRsvewleOjmpO5pHIbdfO-cicjs4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "984747536753-dcpe9l4h8ei9od9vbmnnm3vs2c42uk8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984747536753:android:f71adbf4136e71847b86d0",
+        "android_client_info": {
+          "package_name": "com.example.wedaeasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "984747536753-dcpe9l4h8ei9od9vbmnnm3vs2c42uk8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEgCSjRsvewleOjmpO5pHIbdfO-cicjs4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "984747536753-dcpe9l4h8ei9od9vbmnnm3vs2c42uk8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
