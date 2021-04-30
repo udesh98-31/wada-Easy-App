@@ -89,4 +89,62 @@
         <item>Painting</item>
         <item>Carpenters</item>
     </string-array>
+
+
+
+    //headings
+    <string name="heading1">Add Appointment</string>//heading
+    <string name="edit_appointment">Edit Appointment</string>//heading 2
+    <string name="delete_appointment">Delete Appointment</string>//heading 3
+    <string name="Search">Search Service</string>//heading 4
+    <string name="Results">Results</string>//heading5
+    <string name="Manage_appoint">My Appointments</string>//heading6
+
+    //form details
+    <string name="Cl_Name">Name</string>sir arae
+    <string name="Cl_location">Location</string>
+    <string name="Cl_phone">Contact</string>
+    <string name="ap_time">Time</string>
+    <string name="ap_date">Date</string>
+    <string name="ap_type">Type</string>
+    <string name="prov_no">Provider No</string>
+    <string name="cl_Remark">Remark</string>
+    <string name="qualification">Qualification</string>
+    <string name="status">Status</string>
+    <string name="working_day">Working_days</string>
+    <string name="Email1">email</string>
+    <string name="prov_area">Areas</string>
+
+    //preview,edit,delete
+
+    <string name="Appoin_no">Appointment No</string>
+    <string name="Appoin_details">Appointment Details</string>
+
+    //alerts and Buttons
+    <string name="add">Confirm</string>//button
+    <string name="cancel">cancel</string>//button
+    <string name="edit">Edit</string>//button
+    <string name="delete">delete</string>//button
+    <string name="Search_b">Search</string>//button
+    <string name="view_p">View profile</string>//button
+    <string name="preview">Preview</string>//button
+    <string name="book">Book</string>//button
+    <string name="quote">Get Quote</string>//button
+
+    <string name="option_1">Yes</string>//button
+    <string name="option_2">No</string>//button
+    <string name="option_3">Close</string>//button
+
+    //alert messages
+    <string name="update_Alert">Update?</string>
+    <string name="Confirm_Alert">Confirm?</string>
+    <string name="Alert_msg">Your Appointment has been updated</string>
+    <string name="Alert_msg2">Are you sure you want to delete?</string>
+    <string name="Alert_msg3">Didnt find what you are looking for?</string>
+
+    <string name="prov_name">provider</string>
+    <string name="update">Updated Appointment</string>
+    <string name="delete_app">Deleted Appointment</string>
+    <string name="dashboard"><![CDATA[<-]]></string>
+
 </resources>

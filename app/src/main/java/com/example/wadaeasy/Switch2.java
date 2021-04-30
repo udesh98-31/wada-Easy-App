@@ -28,7 +28,7 @@ public class Switch2 extends AppCompatActivity {
         client.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Switch2.this, clientHome.class);
+                Intent intent = new Intent(Switch2.this, addApointment.class);
                 startActivity(intent);
             }
         });

@@ -62,7 +62,7 @@ DatabaseReference refdb;
         ch =findViewById(R.id.chargeView);
 
 
-                refdb = FirebaseDatabase.getInstance().getReference().child("Service").child("1");
+                refdb = FirebaseDatabase.getInstance().getReference().child("Service").child(uid);
                 refdb.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
