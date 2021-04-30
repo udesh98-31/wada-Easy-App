@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                                     dbref.push().setValue(ac);
                                     Toast.makeText(getApplicationContext(),"Sucsess",Toast.LENGTH_SHORT).show();
                                     ClearControls();
-                                    Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+                                    Intent intent=new Intent(MainActivity.this,Switch.class);
                                     startActivity(intent);
                                 }
 

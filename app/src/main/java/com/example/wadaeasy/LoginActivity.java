@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseUser mFirebaseUser= mFirebaseAuth.getCurrentUser();
                 if(mFirebaseAuth!=null) {
                     Toast.makeText(LoginActivity.this, "your Loged in", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                    Intent i = new Intent(LoginActivity.this, Switch.class);
                     startActivity(i);
                 }
                 else{
@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                                  Toast.makeText(LoginActivity.this,"Login Error Please Login Again",Toast.LENGTH_SHORT).show();
                              }
                              else{
-                                 Intent intentHome =  new Intent(LoginActivity.this,HomeActivity.class);
+                                 Intent intentHome =  new Intent(LoginActivity.this,Switch2.class);
                                  startActivity(intentHome);
                              }
 

@@ -10,4 +10,83 @@
     <string name="APPname">වැඩ Easy</string>
     <string name="accouthave">Already have an Account Login</string>
     <string name="haventaccountmsg">Do not have an account yet?  Sign Up</string>
+    <string name="Switch">Welcome!</string>
+    <string name="Thanks">Thanks ! For Joing With Us....</string>
+    <string name="AddService">ADD SERVICE</string>
+    <string name="Appoiments">APPOIMENTS</string>
+    <string name="Request">REQUESTS</string>
+    <string name="FeedBack">FEEDBACK</string>
+
+    <string name="AddService1">Add Service</string>
+    <string name="AddName">Name :</string>
+    <string name="AddType">Select Service Type :</string>
+    <string name="WorkingArea1">Area 1 :</string>
+    <string name="WorkingArea2">Area 2 :</string>
+    <string name="WorkingHours">Working Hours :</string>
+    <string name="WorkingAreas">Working Areas</string>
+    <string name="To">To</string>
+    <string name="Name" />
+    <string name="Area1input" />
+    <string name="Area2input" />
+    <string name="ServiceCharge">Service Charge (Per Hour) :</string>
+    <string name="ServiceQulification">Service Qulification :</string>
+    <string name="Next">Next</string>
+    <string name="WorkingDays">Working Days :</string>
+    <string name="Monday">Monday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="Wensday">Wensday</string>
+    <string name="Thursday">Thursday</string>
+    <string name="Friday">Friday</string>
+    <string name="Satuday">Satuday</string>
+    <string name="Sunday">Sunday</string>
+    <string name="MoreInfo">More Infomation :</string>
+    <string name="btnSubmit">Submit</string>
+    <string name="Contact">Contact Numbers </string>
+    <string name="Number1">Number 1 :</string>
+    <string name="Number2">Number 2 :</string>
+    <string name="StartTime">08:00 AM</string>
+    <string name="EndTime">05:00 PM</string>
+    <string name="test" />
+    <string name="NameRead" />
+    <string name="MyService2">My Service</string>
+    <string name="NameView">Name :</string>
+    <string name="ServiceView">Service Type :</string>
+    <string name="AreaView">Working Areas :</string>
+    <string name="Nameview" />
+    <string name="Servicetypeview" />
+    <string name="Areaview1" />
+    <string name="Areaview2" />
+    <string name="Workingtimeview">Working Time :</string>
+    <string name="StimeView" />
+    <string name="EtimeView" />
+    <string name="to">To</string>
+    <string name="Days">Working Days :</string>
+    <string name="d1" />
+    <string name="NameView2">Name :</string>
+    <string name="Qualification">Qualification :</string>
+    <string name="Qualificationview" />
+    <string name="phone">Phone :</string>
+    <string name="phone1view" />
+    <string name="Phone">Phone :</string>
+    <string name="ph1" />
+    <string name="ph2" />
+    <string name="charge">Working Charge Per Hour (LKR) :</string>
+    <string name="ChargeView" />
+    <string name="MyService">My Service</string>
+
+
+    <string-array name="service">
+        <item>Aluminium</item>
+        <item>Mosons</item>
+        <item>Tile</item>
+        <item>Plumbing</item>
+        <item>CCTV</item>
+        <item>A/C</item>
+        <item>Landscaping</item>
+        <item>Welding</item>
+        <item>Electrical</item>
+        <item>Electronic</item>
+        <item>Painting</item>
+        <item>Carpenters</item>
+    </string-array>
 </resources>

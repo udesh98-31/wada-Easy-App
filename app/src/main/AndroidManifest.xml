@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WadaEasy">
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".Switch2"></activity>
+        <activity android:name=".ServiceHome2"></activity>
+        <activity android:name=".ServiceView"></activity>
+        <activity android:name=".clientHome" />
+        <activity android:name=".serviceHome" />
+        <activity android:name=".Switch" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -18,6 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddService2" />
+        <activity android:name=".AddService1"></activity>
     </application>
 
 </manifest>
