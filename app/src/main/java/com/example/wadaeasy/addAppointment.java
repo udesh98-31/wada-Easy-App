@@ -8,13 +8,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
-public class addApointment extends AppCompatActivity {
+public class addAppointment extends AppCompatActivity {
 
     EditText txtname,txtContact,txtEmail,txtProvno,txtloc,txtDate,txtTime,txtRem;
     Button btnConfirm,btnCancel,show;
@@ -22,14 +26,14 @@ public class addApointment extends AppCompatActivity {
     Appointment ap1;
     confirmAppointment ca1;
 
-
-
+    long maxid=0;
+    String ap_no;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_appointment);
+        setContentView(R.layout.activity_main);
 
         this.setTitle("වැඩ Easy -Add Appointment");
 
@@ -41,24 +45,42 @@ public class addApointment extends AppCompatActivity {
         txtDate=findViewById(R.id.App_Date);
         txtTime=findViewById(R.id.ap_Time);
         txtRem=findViewById(R.id.remark);
+
+        //get the providor number from his profile
         Intent newIntent=getIntent();
         String n1= newIntent.getStringExtra("Extra_message1");
 
         txtProvno.setText(n1);
 
+        ap1=new Appointment();
+        ca1=new confirmAppointment();
+
         btnConfirm=findViewById(R.id.ap_confirm);
+        dbref= FirebaseDatabase.getInstance().getReference().child("Appointment");
+        dbref2=FirebaseDatabase.getInstance().getReference().child("Confirm Appointment");
+        dbref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    maxid=(snapshot.getChildrenCount());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ap1=new Appointment();
-                ca1=new confirmAppointment();
-                dbref= FirebaseDatabase.getInstance().getReference().child("Appointment");
-                String uid;
-                dbref2=FirebaseDatabase.getInstance().getReference().child("Confirm Appointment");
+
+
                 try{
+                    //check if the views are null
                     if(TextUtils.isEmpty(txtname.getText().toString()))
                         Toast.makeText(getBaseContext(),"please Enter a Name",Toast.LENGTH_SHORT).show();
                     else if(TextUtils.isEmpty(txtContact.getText().toString()))
@@ -66,15 +88,17 @@ public class addApointment extends AppCompatActivity {
                     else if(TextUtils.isEmpty(txtEmail.getText().toString()))
                         Toast.makeText(getBaseContext(),"please Enter Email",Toast.LENGTH_SHORT).show();
 
-                    else if(TextUtils.isEmpty(txtloc.getText().toString())) {
+                    else if(TextUtils.isEmpty(txtloc.getText().toString()))
                         Toast.makeText(getBaseContext(),"please Enter Location",Toast.LENGTH_SHORT).show();
-                    } else if(TextUtils.isEmpty(txtDate.getText().toString()))
+                    else if(TextUtils.isEmpty(txtDate.getText().toString()))
                         Toast.makeText(getBaseContext(),"please Enter Date",Toast.LENGTH_SHORT).show();
                     else if(TextUtils.isEmpty(txtTime.getText().toString()))
                         Toast.makeText(getBaseContext(),"please Enter Time",Toast.LENGTH_SHORT).show();
                     else if(TextUtils.isEmpty(txtRem.getText().toString()))
                         Toast.makeText(getBaseContext(),"please Enter Remark",Toast.LENGTH_SHORT).show();
                     else{
+
+                        //insert into appointment table
                         ap1.setName(txtname.getText().toString().trim());
                         ap1.setContact(Integer.parseInt(txtContact.getText().toString().trim()));
                         ap1.setEmail(txtEmail.getText().toString().trim());
@@ -83,15 +107,32 @@ public class addApointment extends AppCompatActivity {
                         ap1.setProvider_no(txtProvno.getText().toString().trim());
                         ap1.setTime(txtTime.getText().toString().trim());
                         ap1.setRemark(txtRem.getText().toString().trim());
-                        ca1.setUid(txtProvno.getText().toString().trim());
+                        ap1.setStatus("Pending");
 
-                        dbref.push().setValue(ap1);
-                        dbref2.push().setValue(ca1);
+                        //insert into confirm appointment table
+                        ca1.setUid(txtProvno.getText().toString().trim());
+                        ca1.setName(txtname.getText().toString().trim());
+                        ca1.setContact(Integer.parseInt(txtContact.getText().toString().trim()));
+                        ca1.setEmail(txtEmail.getText().toString().trim());
+                        ca1.setLocation(txtloc.getText().toString().trim());
+                        ca1.setDate(txtDate.getText().toString().trim());
+                        ca1.setStatus("Pending".trim());
+                        ca1.setAppointNo(Long.parseLong(String.valueOf(maxid+1)));
+                        ca1.setTime(txtTime.getText().toString().trim());
+                        ca1.setRemark(txtRem.getText().toString().trim());
+
+
+                        dbref.child(String.valueOf(maxid+1)).setValue(ap1);
+                        //service provider id
+                        dbref2.child(String.valueOf("GONKrD3rJSaHu7BKAYpEu2XROt02")).setValue(ca1);
 
                         Toast.makeText(getBaseContext(),"Your Appointment has been confirmed",Toast.LENGTH_LONG).show();
-                        ClearControls();
-                        Intent aboutScreen = new Intent(getBaseContext(),view_appoint.class);
-                        startActivity(aboutScreen);
+
+                        ap_no=String.valueOf(maxid+1);
+
+                        Intent intent = new Intent(v.getContext(), Appointment_confirm.class);
+                        intent.putExtra("number",ap_no);
+                        v.getContext().startActivity(intent);
                     }
 
 
@@ -115,16 +156,13 @@ public class addApointment extends AppCompatActivity {
 
 
 
-            public void Cancel(View view){
-        ClearControls();
-        Intent intent=new Intent(this,view_appoint.class);
-        startActivity(intent);
-    }
 
-    /*public void Dashboard(View view){
-        Intent intent=new Intent(this,Dashboard.class);
-        startActivity(intent);
-    }*/
+
+
+
+
+
+
 
     public void ClearControls(){
         txtname.setText(" ");
