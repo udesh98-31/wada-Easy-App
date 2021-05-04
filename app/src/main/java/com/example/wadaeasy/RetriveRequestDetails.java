@@ -1,10 +1,12 @@
 package com.example.wadaeasy;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,12 +22,12 @@ public class RetriveRequestDetails extends AppCompatActivity {
 
 
     TextView txtname, txtlocation, txtcategory, txtdate, txtphone, txtservicetype;
-    Button buttonview;
+    Button buttonedit,btndelete;
     DatabaseReference dbreff;
-    Client client;
 
 
-    @SuppressLint("WrongViewCast")
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,44 +41,53 @@ public class RetriveRequestDetails extends AppCompatActivity {
         txtphone = findViewById(R.id.phoneview);
         txtservicetype = findViewById(R.id.spview);
 
-        buttonview = findViewById(R.id.btnview);
-
-        buttonview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dbreff = FirebaseDatabase.getInstance().getReference().child("Client").child("1");
-                dbreff.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        String name = snapshot.child("name").getValue().toString();
-                        String location = snapshot.child("location").getValue().toString();
-                        String category = snapshot.child("category").getValue().toString();
-                        String date = snapshot.child("date").getValue().toString();
-                        String phone = snapshot.child("phone").getValue().toString();
-                        String serviceType = snapshot.child("serviceType").getValue().toString();
-
-                        txtname.setText(name);
-                        txtlocation.setText(location);
-                        txtcategory.setText(category);
-                        txtdate.setText(date);
-                        txtphone.setText(phone);
-                        txtservicetype.setText(serviceType);
+        Intent aboutScreen= getIntent();
+        String a1= aboutScreen.getStringExtra("numbers");
 
 
-                    }
+        dbreff = FirebaseDatabase.getInstance().getReference().child("Client").child(a1);
+        dbreff.addValueEventListener(new ValueEventListener() {
+                                         @Override
+                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                                             String name = snapshot.child("name").getValue().toString();
+                                             String location = snapshot.child("location").getValue().toString();
+                                             String category = snapshot.child("category").getValue().toString();
+                                             String date = snapshot.child("date").getValue().toString();
+                                             String phone = snapshot.child("phone").getValue().toString();
+                                             String serviceType = snapshot.child("serviceType").getValue().toString();
 
-                    }
-                });
-            }
-        });
+                                             txtname.setText(name);
+                                             txtlocation.setText(location);
+                                             txtcategory.setText(category);
+                                             txtdate.setText(date);
+                                             txtphone.setText(phone);
+                                             txtservicetype.setText(serviceType);
+
+
+                                         }
+
+                                         @Override
+                                         public void onCancelled(@NonNull DatabaseError error) {
+
+                                         }
+                                     });
+
 
 
 
     }
+    public void onbuttonedit(View view){
 
+        Intent intent = new Intent(this,UpdateRequest.class);
+        startActivity(intent);
+        Toast.makeText(getApplicationContext(),  "You just click the button",Toast.LENGTH_SHORT).show();
+    }
+    public void onbtndelete(View view){
+
+        Intent intent = new Intent(this,DeleteRequest.class);
+        startActivity(intent);
+        Toast.makeText(getApplicationContext(),  "You just click the button",Toast.LENGTH_SHORT).show();
+    }
 
 }

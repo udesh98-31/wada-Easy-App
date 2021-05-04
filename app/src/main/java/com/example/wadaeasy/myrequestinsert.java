@@ -9,10 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class myrequestinsert extends AppCompatActivity {
@@ -21,6 +25,10 @@ public class myrequestinsert extends AppCompatActivity {
     Button btnconfirm, btncancle;
     DatabaseReference dbreff;
     Client client;
+
+    long maxid = 0;
+    String req_no;
+
 
 
 
@@ -37,22 +45,35 @@ public class myrequestinsert extends AppCompatActivity {
         txtcategory =findViewById(R.id.s_Category);
         txtdate =findViewById(R.id.cl_date);
         txtphone = findViewById(R.id.client_Phone);
-        txtservicetype = findViewById(R.id.cl_servicet);
+        txtservicetype = findViewById(R.id.cl_service);
+
+
+
 
         btncancle =findViewById(R.id.rs_cancle);
-        btnconfirm =findViewById(R.id.rs_confirm);
+        btnconfirm =findViewById(R.id.edit_button);
         client = new Client();
         dbreff = FirebaseDatabase.getInstance().getReference().child("Client");
+        dbreff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    maxid=(snapshot.getChildrenCount());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 
 
         btnconfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(v.getContext(),RetriveRequestDetails.class);
-
-
 
                 try{
                     if(TextUtils.isEmpty(txtname.getText().toString()))
@@ -75,14 +96,21 @@ public class myrequestinsert extends AppCompatActivity {
                         client.setPhone(Integer.parseInt(txtphone.getText().toString().trim()));
                         client.setServiceType(txtservicetype.getText().toString().trim());
 
-
-
-                        dbreff.child(String.valueOf("1")).setValue(client);
-
-                        v.getContext().startActivity(intent);
+                        dbreff.child(String.valueOf(maxid + 1)).setValue(client);
 
                         Toast.makeText(getBaseContext(),"Data Inserted Successfully",Toast.LENGTH_SHORT).show();
-                        ClearControls();
+
+
+                        req_no=String.valueOf(maxid+1);
+
+                        Intent intent = new Intent(v.getContext(),Request_confirm.class);
+                        intent.putExtra("number",req_no);
+                        v.getContext().startActivity(intent);
+
+
+
+
+
 
 
                     }
@@ -101,12 +129,7 @@ public class myrequestinsert extends AppCompatActivity {
 
     }
 
-      /*  public void onConfirm(View view){
 
-            Intent intent = new Intent(this,RetriveRequestDetails.class);
-            startActivity(intent);
-            Toast.makeText(getApplicationContext(),  "You just click the button",Toast.LENGTH_SHORT).show();
-        }*/
         public void onCancle(View view){
             ClearControls();
             Intent intent = new Intent(this,MyRequest.class);

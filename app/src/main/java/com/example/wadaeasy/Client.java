@@ -59,4 +59,7 @@ public class Client {
     public void setServiceType(String serviceType) {
         ServiceType = serviceType;
     }
+
+    public void setProvider_no(String trim) {
+    }
 }

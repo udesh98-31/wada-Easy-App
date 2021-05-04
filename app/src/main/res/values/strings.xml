@@ -91,7 +91,6 @@
     </string-array>
 
 
-
     //headings
     <string name="heading1">Add Appointment</string>//heading
     <string name="edit_appointment">Edit Appointment</string>//heading 2
@@ -150,51 +149,50 @@
     //Request(Thiranya)
 
 
+    //headings
+    <string name="request_service">Request Service</string>
+    <string name="my_request">My Request</string>
+    <string name="update_request">Update Request</string>
+    <string name="delete_request">Delete Request</string>
 
-        //headings
-        <string name="request_service">Request Service</string>
-        <string name="my_request">My Request</string>
-        <string name="update_request">Update Request</string>
-        <string name="delete_request">Delete Request</string>
+    //form details
+    <string name="cl_name">Name</string>
+    <string name="cl_email">Email</string>
+    <string name="cl_location">Location</string>
+    <string name="category">Category</string>
+    <string name="date">Date</string>
+    <string name="phonereq">Phone</string>
+    <string name="service_type">Service Type</string>
+    <string name="request_number">Request Number</string>
+    <string name="sp_name">Service Provider Name</string>
+    <string name="cl_requestedDetails">Requested Service</string>
+    <string name="sp_number">Service Provider Number</string>
+    <string name="feedback">Feedback</string>
 
-        //form details
-        <string name="cl_name">Name</string>
-        <string name="cl_email">Email</string>
-        <string name="cl_location">Location</string>
-        <string name="category">Category</string>
-        <string name="date">Date</string>
-        <string name="phonereq">Phone</string>
-        <string name="service_type">Service Type</string>
-        <string name="request_number">Request Number</string>
-        <string name="sp_name">Service Provider Name</string>
-        <string name="cl_requestedDetails">Requested Service</string>
-        <string name="sp_number">Service Provider Number</string>
-        <string name="feedback">Feedback</string>
+    //alerts and buttons
+    <string name="submit">Submit</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancelreq">Cancel</string>
+    <string name="previewreq">Preview</string>
+    <string name="update">Update</string>
+    <string name="editreq">Edit</string>
+    <string name="deletereq">Delete</string>
+    <string name="close">Close</string>
+    <string name="back">Back</string>
 
-        //alerts and buttons
-        <string name="submit">Submit</string>
-        <string name="confirm">Confirm</string>
-        <string name="cancelreq">Cancel</string>
-        <string name="previewreq">Preview</string>
-        <string name="update">Update</string>
-        <string name="editreq">Edit</string>
-        <string name="deletereq">Delete</string>
-        <string name="close">Close</string>
-        <string name="back">Back</string>
+    //alert messages
+    <string name="delete_alert">Delete</string>
+    <string name="edit_alert">Update</string>
+    <string name="delete_alert_msg">Your Request has been deleted successfully</string>
+    <string name="edit_alert_msg">Your Request has been updated successfully</string>
 
-        //alert messages
-        <string name="delete_alert">Delete</string>
-        <string name="edit_alert">Update</string>
-        <string name="delete_alert_msg">Your Request has been deleted successfully</string>
-        <string name="edit_alert_msg">Your Request has been updated successfully</string>
-
-        //client dashboard
-        <string name="search">Search Service</string>
-        <string name="appointment">Appointment</string>
-        <string name="requestservice">Request Service</string>
-        <string name="myrequest">My request</string>
-        <string name="feedbackbtn">Feedback</string>
+    //client dashboard
+    <string name="search">Search Service</string>
+    <string name="appointment">Appointment</string>
+    <string name="requestservice">Request Service</string>
+    <string name="myrequest">My request</string>
+    <string name="feedbackbtn">Feedback</string>
 
 
-    </resources>
+</resources>
 

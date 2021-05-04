@@ -16,24 +16,6 @@ public class MyRequest extends AppCompatActivity {
         this.setTitle("වැඩ Easy -Request Service");
     }
 
-    public void onPreview(View view){
 
-        Intent intent = new Intent(this,RetriveRequestDetails.class);
-        startActivity(intent);
-        Toast.makeText(getApplicationContext(),  "You just click the button",Toast.LENGTH_LONG).show();
-    }
-    public void onUpdate(View view){
-
-        Intent intent = new Intent(this,UpdateRequest.class);
-        startActivity(intent);
-        Toast.makeText(getApplicationContext(),  "You just click the button",Toast.LENGTH_LONG).show();
-    }
-
-    public void onDelete(View view){
-
-        Intent intent = new Intent(this,DeleteRequest.class);
-        startActivity(intent);
-        Toast.makeText(getApplicationContext(),  "You just click the button",Toast.LENGTH_LONG).show();
-    }
 
 }

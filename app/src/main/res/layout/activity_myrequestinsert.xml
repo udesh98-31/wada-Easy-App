@@ -11,6 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="@string/request_service"
         android:textAlignment="center"
         android:textColor="#101010"
@@ -27,17 +28,16 @@
         android:id="@+id/cl_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="Name :"
         android:textAlignment="center"
         android:textColor="#0C0C0C"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cl_Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.219" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/cl_location"
@@ -47,12 +47,10 @@
         android:textColor="#0C0C0C"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cl_Location"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305" />
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/cl_category"
@@ -62,27 +60,24 @@
         android:textColor="#0B0B0B"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/s_Category"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387" />
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="63dp"
+        android:layout_height="45dp"
         android:text="Date :"
         android:textColor="#050505"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cl_date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
+        app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/cl_phone"
@@ -92,12 +87,10 @@
         android:textColor="#090909"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/client_Phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547" />
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/cl_Stype"
@@ -112,7 +105,7 @@
         app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.64" />
+        app:layout_constraintVertical_bias="0.734" />
 
     <EditText
         android:id="@+id/cl_Name"
@@ -121,10 +114,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/cl_name"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cl_name"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.631"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/cl_Location"
@@ -133,10 +129,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/cl_location"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cl_location"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.355"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/s_Category"
@@ -145,10 +144,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/category"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cl_category"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.448"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/cl_date"
@@ -157,13 +159,16 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/date"
-        app:layout_constraintBaseline_toBaselineOf="@+id/date"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.631"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.546"
+        tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/cl_servicet"
+        android:id="@+id/cl_service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -171,11 +176,11 @@
         android:text="@string/service_type"
         app:layout_constraintBaseline_toBaselineOf="@+id/cl_Stype"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.696"
+        app:layout_constraintHorizontal_bias="0.706"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/rs_confirm"
+        android:id="@+id/edit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#AD1457"
@@ -184,10 +189,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.877" />
 
     <Button
         android:id="@+id/rs_cancle"
@@ -203,7 +208,7 @@
         app:layout_constraintHorizontal_bias="0.701"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.877" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -236,9 +241,9 @@
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.701"
+        app:layout_constraintHorizontal_bias="0.706"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.539" />
+        app:layout_constraintVertical_bias="0.632" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
