@@ -3,11 +3,19 @@ package com.example.wadaeasy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -15,10 +23,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.io.IOException;
 
 public class ServiceView extends AppCompatActivity {
-
-TextView name;
+    Button main,home,ap,fd;
+    TextView name;
 TextView Service;
 TextView Area1;
 TextView Area2;
@@ -31,9 +46,13 @@ TextView phone1,phone2;
 TextView ch;
 FirebaseUser user;
 String uid;
-
-Button view;
+Button Update;
+Button Delete;
+ImageView imageView;
+DatabaseReference imgdb;
 DatabaseReference refdb;
+boolean isopen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +61,7 @@ DatabaseReference refdb;
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
+
 
         name = findViewById(R.id.Nameview);
         Service=findViewById(R.id.Servicetype);
@@ -60,9 +80,10 @@ DatabaseReference refdb;
         phone1 =findViewById(R.id.ph1);
         phone2 =findViewById(R.id.ph2);
         ch =findViewById(R.id.chargeView);
+        more = findViewById(R.id.moreInfo);
 
 
-                refdb = FirebaseDatabase.getInstance().getReference().child("Service").child("1");
+                refdb = FirebaseDatabase.getInstance().getReference().child("Service").child(uid);
                 refdb.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -83,7 +104,7 @@ DatabaseReference refdb;
                         String p1 =snapshot.child("phone1").getValue().toString();
                         String p2 = snapshot.child("phone2").getValue().toString();
                         String c = snapshot.child("charge").getValue().toString();
-
+                        String More = snapshot.child("infomation").getValue().toString();
 
 
                         day1.setText(dy1);
@@ -103,6 +124,51 @@ DatabaseReference refdb;
                         phone1.setText(p1);
                         phone2.setText(p2);
                         ch.setText(c);
+                        more.setText(More);
+
+                        imgdb =FirebaseDatabase.getInstance().getReference().child("ProfileImage").child(uid);
+                        imageView=findViewById(R.id.imageView6);
+                        imgdb.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                String msg = snapshot.getValue(String.class);
+                                Picasso.get().load(msg).into(imageView);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        Update = findViewById(R.id.update);
+
+                        Update.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(ServiceView.this, Update.class);
+                                intent.putExtra("NAME", name.getText().toString());
+                                intent.putExtra("AREA1", Area1.getText().toString());
+                                intent.putExtra("AREA2", Area2.getText().toString());
+                                intent.putExtra("QUALIFICATION", Qul.getText().toString());
+                                intent.putExtra("CHARGE", ch.getText().toString());
+                                intent.putExtra("STIME", Time1.getText().toString());
+                                intent.putExtra("ETIME", Time2.getText().toString());
+                                intent.putExtra("PHONE1", phone1.getText().toString());
+                                intent.putExtra("PHONE2", phone2.getText().toString());
+                                intent.putExtra("INFO", more.getText().toString());
+                                intent.putExtra("DAY1", day1.getText().toString());
+                                intent.putExtra("DAY2", day2.getText().toString());
+                                intent.putExtra("DAY3", day3.getText().toString());
+                                intent.putExtra("DAY4", day4.getText().toString());
+                                intent.putExtra("DAY5", day5.getText().toString());
+                                intent.putExtra("DAY6", day6.getText().toString());
+                                intent.putExtra("DAY7", day7.getText().toString());
+
+                                startActivity(intent);
+
+                            }
+                        });
+
                     }
 
                     @Override
@@ -110,7 +176,42 @@ DatabaseReference refdb;
 
                     }
                 });
+
+        main=findViewById(R.id.addbtn);
+        home=findViewById(R.id.homebtn);
+        ap=findViewById(R.id.apoimentBtn);
+        fd = findViewById(R.id.feedback);
+
+        isopen = false;
+        main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(isopen){
+                    home.setVisibility(v.INVISIBLE);
+                    ap.setVisibility(v.INVISIBLE);
+                    fd.setVisibility(v.INVISIBLE);
+
+                    isopen = false;
+                }else{
+                    home.setVisibility(v.VISIBLE);
+                    ap.setVisibility(v.VISIBLE);
+                    fd.setVisibility(v.VISIBLE);
+
+                    isopen = true;
+                }
             }
+        });
+        //Home Navigation
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ServiceView.this,ServiceHome2.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 
 
 }

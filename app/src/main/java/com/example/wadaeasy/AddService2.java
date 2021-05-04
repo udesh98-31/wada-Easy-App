@@ -1,17 +1,23 @@
 package com.example.wadaeasy;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +25,22 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageMetadata;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.support.v4.app.*;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.MimeTypeMap;
+import java.io.IOException;
+
 
 public class AddService2 extends AppCompatActivity {
 
@@ -35,17 +57,27 @@ EditText phone2;
 CheckBox day1,day2,day3,day4,day5,day6,day7;
 EditText infomation;
 DatabaseReference dbref;
+DatabaseReference dbref2;
 Service ser;
 Button submit;
 FirebaseUser user;
 String uid;
 String test="";
+Button ch;
+ImageView img;
+StorageReference stref;
+int imagecode=2;
+ProgressDialog progressDialog;
+Uri FilePathUri;
+EditText txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_service2);
         this.setTitle("වැඩ Easy - Add Service");
+
+        progressDialog = new ProgressDialog(AddService2.this);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
@@ -72,8 +104,13 @@ String test="";
         day7 = findViewById(R.id.Sunday);
         submit = findViewById(R.id.btnSubmit);
         infomation = findViewById(R.id.info);
+        ch = findViewById(R.id.propic);
+        img = findViewById(R.id.imageView4);
+        txt = findViewById(R.id.txt);
+        stref = FirebaseStorage.getInstance().getReference("Images");
         ser = new Service();
         dbref = FirebaseDatabase.getInstance().getReference().child("Service");
+        dbref2 = FirebaseDatabase.getInstance().getReference().child("ProfileImage");
 
 
 
@@ -164,16 +201,30 @@ String test="";
 
 
                         dbref.child(String.valueOf(uid)).setValue(ser);
-
+                        FileUpload();
                         Toast.makeText(getApplicationContext(), "Service Added Successfully !", Toast.LENGTH_SHORT).show();
                         clear();
                         startActivity(intent);
+
+
+
                     }
                 }catch (NumberFormatException e){
                     Toast.makeText(getApplicationContext(),"Invalid",Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        ch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Image"), imagecode);
+            }
+        });
+
+
 
     }
     private void clear(){
@@ -188,4 +239,60 @@ String test="";
         phone2.setText("");
         infomation.setText("");
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == imagecode && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            FilePathUri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), FilePathUri);
+                img.setImageBitmap(bitmap);
+            }
+            catch (IOException e) {
+
+                e.printStackTrace();
+            }
+        }
+    }
+    public String GetFileExtension(Uri uri) {
+
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ;
+
+    }
+
+    public void FileUpload() {
+
+        if (FilePathUri != null) {
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+            StorageReference storageReference2 = stref.child(System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
+            storageReference2.putFile(FilePathUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(
+                                    new OnCompleteListener<Uri>() {
+
+                                        @Override
+                                        public void onComplete(@NonNull Task<Uri> task) {
+                                            String fileLink = task.getResult().toString();
+                                            dbref2.child(uid).setValue(fileLink);
+
+                                        }
+                                    });
+
+                        }
+                    });
+        }
+
+    }
+
 }

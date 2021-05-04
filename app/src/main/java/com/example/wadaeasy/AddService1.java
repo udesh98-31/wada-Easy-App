@@ -2,13 +2,17 @@ package com.example.wadaeasy;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -16,9 +20,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.Calendar;
 
-public class AddService1 extends AppCompatActivity {
+public class AddService1 extends AppCompatActivity{
+
 
 Button Next;
 EditText name;
@@ -30,6 +37,8 @@ Spinner Spinner1;
 TextView stime;
 TextView etime;
 int hr,min;
+Button main,home,ap,fd;
+boolean isopen;
 
 
     @Override
@@ -37,6 +46,8 @@ int hr,min;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_service1);
         this.setTitle("වැඩ Easy - Add Service");
+
+
 
         Spinner service = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<String> myadapter = new ArrayAdapter<>(com.example.wadaeasy.AddService1.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.service));
@@ -139,7 +150,43 @@ int hr,min;
                         }
                     }
                 });
+        main=findViewById(R.id.addbtn);
+        home=findViewById(R.id.homebtn);
+        ap=findViewById(R.id.apoimentBtn);
+        fd = findViewById(R.id.feedback);
+
+        isopen = false;
+        main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(isopen){
+                    home.setVisibility(v.INVISIBLE);
+                    ap.setVisibility(v.INVISIBLE);
+                    fd.setVisibility(v.INVISIBLE);
+
+                    isopen = false;
+                }else{
+                    home.setVisibility(v.VISIBLE);
+                    ap.setVisibility(v.VISIBLE);
+                    fd.setVisibility(v.VISIBLE);
+
+                    isopen = true;
+                }
+            }
+        });
+        //Home Navigation
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddService1.this,ServiceHome2.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
+
     private void  clear(){
         name.setText("");
         area1.setText("");
@@ -148,6 +195,7 @@ int hr,min;
         Qualification.setText("");
 
     }
+
 }
 
 

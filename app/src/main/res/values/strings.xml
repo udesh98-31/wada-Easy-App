@@ -40,7 +40,7 @@
     <string name="Satuday">Satuday</string>
     <string name="Sunday">Sunday</string>
     <string name="MoreInfo">More Infomation :</string>
-    <string name="btnSubmit">Submit</string>
+    <string name="btnSubmit">ADD SERVICE</string>
     <string name="Contact">Contact Numbers </string>
     <string name="Number1">Number 1 :</string>
     <string name="Number2">Number 2 :</string>
@@ -65,7 +65,7 @@
     <string name="NameView2">Name :</string>
     <string name="Qualification">Qualification :</string>
     <string name="Qualificationview" />
-    <string name="phone">Phone :</string>
+    <string name="phone2">Phone :</string>
     <string name="phone1view" />
     <string name="Phone">Phone :</string>
     <string name="ph1" />
@@ -73,6 +73,25 @@
     <string name="charge">Working Charge Per Hour (LKR) :</string>
     <string name="ChargeView" />
     <string name="MyService">My Service</string>
+    <string name="moreview">More Infomation :</string>
+    <string name="Update">UPDATE</string>
+    <string name="more">More Infomation :</string>
+    <string name="morezinfoview" />
+    <string name="update">UPDATE</string>
+    <string name="delete">DELETE</string>
+    <string name="test2" />
+    <string name="NameUpdate" />
+    <string name="btnUpdate">UPDATE</string>
+    <string name="image">Select Profile Picture :</string>
+    <string name="propic">Choose</string>
+    <string name="txt" />
+    <string name="Update1">Update Service</string>
+    <string name="UpdateNew">Edit Service</string>
+    <string name="AddNew">Add Service</string>
+    <string name="Back">></string>
+    <string name="btnHome">Home</string>
+    <string name="btnAppoiment">Appoiment</string>
+    <string name="feedback">Feed Back</string>
 
 
     <string-array name="service">
@@ -89,4 +108,6 @@
         <item>Painting</item>
         <item>Carpenters</item>
     </string-array>
+
+
 </resources>
