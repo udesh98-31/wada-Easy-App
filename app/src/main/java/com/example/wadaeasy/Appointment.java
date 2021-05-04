@@ -10,12 +10,14 @@ public class Appointment {
     private String Date;
     private String time;
     private String Remark;
+    private String ApoNo;
 
-    public Appointment(String name, Integer contact, String email, String provider_no) {
+    public Appointment(String name, Integer contact, String email, String provider_no,String ApoNo) {
         this.name = name;
         this.contact = contact;
         this.email = email;
         this.provider_no = provider_no;
+        this.ApoNo=ApoNo;
     }
 
     public Appointment() {
@@ -83,5 +85,11 @@ public class Appointment {
 
     public void setRemark(String remark) {
         Remark = remark;
+    }
+
+    public String getApoNo(){return  ApoNo;}
+
+    public void setStatus(String status) {
+        this.ApoNo=ApoNo;
     }
 }

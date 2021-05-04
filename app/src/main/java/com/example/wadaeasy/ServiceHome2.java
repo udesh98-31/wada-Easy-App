@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class ServiceHome2 extends AppCompatActivity {
 Button myService;
+Button appoiment;
+Button Request;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +18,8 @@ Button myService;
         this.setTitle("වැඩ Easy - Home");
 
         myService = findViewById(R.id.AddService);
+        appoiment=findViewById(R.id.Appoiments);
+        Request=findViewById(R.id.Request);
 
         myService.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,5 +28,25 @@ Button myService;
                 startActivity(intent);
             }
         });
+
+        appoiment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(ServiceHome2.this,AppoimentVIewS.class);
+                startActivity(intent);
+            }
+        });
+
+        Request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ServiceHome2.this,wantedlistview.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
     }
 }

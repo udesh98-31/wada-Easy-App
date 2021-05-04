@@ -43,8 +43,8 @@ public class view_appoint extends AppCompatActivity {
                         int Contact=snapshot.getValue(Integer.class);
                         String email=snapshot.getValue(String.class);
                         String providor=snapshot.getValue(String.class);
-                   Appointment ap1=new Appointment(name,Contact,email,providor);
-                   details.add(ap1);
+                  // Appointment ap1=new Appointment(name,Contact,email,providor);
+                  // details.add(ap1);
                    newArray.notifyDataSetChanged();
 
             }
