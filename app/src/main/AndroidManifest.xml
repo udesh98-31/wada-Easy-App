@@ -17,11 +17,21 @@
         <activity android:name=".Switch" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+        <activity android:name=".ClientDashboard"/>
+        <activity android:name=".myrequestinsert"/>
+        <activity android:name=".RetriveRequestDetails"/>
+        <activity android:name=".DeleteConfirmation"/>
+        <activity android:name=".DeleteRequest"/>
+        <activity android:name=".UpdateConfirmation"/>
+        <activity android:name=".UpdateRequest">
+
+
         </activity>
         <activity android:name=".AddService2" />
         <activity android:name=".AddService1"></activity>
