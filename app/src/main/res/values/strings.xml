@@ -145,6 +145,12 @@
     <string name="updatereq">Updated Appointment</string>
     <string name="delete_app">Deleted Appointment</string>
     <string name="dashboard"><![CDATA[<-]]></string>
+    <string name="BookinREq">Booking Request</string>
+    <string name="confirmAP">Confirm Appoiment</string>
+    <string name="Loding">Loding......</string>
+    <string name="Sortmsg">Enter short msg for custoer</string>
+    <string name="shortmsgforcustomer">Enter short msg for customer</string>
+    <string name="Quote">Quote</string>
 
     //Request(Thiranya)
 
