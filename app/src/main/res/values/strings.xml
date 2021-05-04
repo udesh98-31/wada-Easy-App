@@ -46,6 +46,8 @@
     <string name="Number2">Number 2 :</string>
     <string name="StartTime">08:00 AM</string>
     <string name="EndTime">05:00 PM</string>
+    <string name="manage">Manage</string>
+    <string name="previous">Previous</string>
     <string name="test" />
     <string name="NameRead" />
     <string name="MyService2">My Service</string>

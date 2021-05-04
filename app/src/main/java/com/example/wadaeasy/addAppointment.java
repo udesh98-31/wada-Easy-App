@@ -23,7 +23,7 @@ public class addAppointment extends AppCompatActivity {
     EditText txtname,txtContact,txtEmail,txtProvno,txtloc,txtDate,txtTime,txtRem;
     Button btnConfirm,btnCancel,show;
     DatabaseReference dbref,dbref2;
-    Appointment ap1;
+    Appointment1 ap1;
     confirmAppointment ca1;
 
     long maxid=0;
@@ -47,12 +47,12 @@ public class addAppointment extends AppCompatActivity {
         txtRem=findViewById(R.id.remark);
 
         //get the providor number from his profile
-        Intent newIntent=getIntent();
-        String n1= newIntent.getStringExtra("Extra_message1");
+        //Intent newIntent=getIntent();
+        //String n1= newIntent.getStringExtra("Extra_message1");
 
-        txtProvno.setText(n1);
+        //txtProvno.setText(n1);
 
-        ap1=new Appointment();
+        ap1=new Appointment1();
         ca1=new confirmAppointment();
 
         btnConfirm=findViewById(R.id.ap_confirm);
@@ -154,17 +154,7 @@ public class addAppointment extends AppCompatActivity {
 
             }
 
-
-
-
-
-
-
-
-
-
-
-    public void ClearControls(){
+            public void ClearControls(){
         txtname.setText(" ");
         txtContact.setText(" ");
         txtDate.setText(" ");

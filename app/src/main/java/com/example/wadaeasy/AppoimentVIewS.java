@@ -26,7 +26,7 @@ public class AppoimentVIewS extends AppCompatActivity {
     DatabaseReference refdb;
     FirebaseUser user;
     String uid;
-    Appointment apmt;
+    Appointment1 apmt;
     private String contact1,location1,name1,time1,Date1,remark1,apno1,statu1;
 
 
@@ -47,7 +47,7 @@ public class AppoimentVIewS extends AppCompatActivity {
         Name=findViewById(R.id.nametxt);
         Confirmbtn=findViewById(R.id.conapobt);
         cancelbtn=findViewById(R.id.cancelbt);
-        apmt=new Appointment();
+        apmt=new Appointment1();
 
 
                 refdb= FirebaseDatabase.getInstance().getReference().child("Confirm Appointment").child(uid);

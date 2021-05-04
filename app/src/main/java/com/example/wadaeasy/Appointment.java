@@ -1,6 +1,6 @@
 package com.example.wadaeasy;
 
-public class Appointment1 {
+public class Appointment {
 
     private String name;
     private Integer contact;
@@ -10,17 +10,24 @@ public class Appointment1 {
     private String Date;
     private String time;
     private String Remark;
-    private String ApoNo;
+    private String status;
 
-    public Appointment1(String name, Integer contact, String email, String provider_no,String ApoNo) {
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Appointment(String name, Integer contact, String email, String provider_no) {
         this.name = name;
         this.contact = contact;
         this.email = email;
         this.provider_no = provider_no;
-        this.ApoNo=ApoNo;
     }
 
-    public Appointment1() {
+    public Appointment() {
     }
 
     public String getName() {
@@ -85,11 +92,5 @@ public class Appointment1 {
 
     public void setRemark(String remark) {
         Remark = remark;
-    }
-
-    public String getApoNo(){return  ApoNo;}
-
-    public void setStatus(String status) {
-        this.ApoNo=ApoNo;
     }
 }
