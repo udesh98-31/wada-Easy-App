@@ -26,8 +26,7 @@ public class Edit_appoin extends AppCompatActivity {
     DatabaseReference dbref,dbref2;
     Appointment ap;
 
-    Intent aboutScreen= getIntent();
-    String a1= aboutScreen.getStringExtra("numbers");
+
 
 
     @Override
@@ -36,7 +35,8 @@ public class Edit_appoin extends AppCompatActivity {
         setContentView(R.layout.activity_edit_appoin);
         this.setTitle("වැඩ Easy -Edit Appointment");
         ap= new Appointment();
-        ;
+        Intent aboutScreen1= getIntent();
+        String a1=aboutScreen1.getStringExtra("numbers");
 
         name=findViewById(R.id.edtname);
         contact=findViewById(R.id.editphone);
@@ -150,7 +150,7 @@ public class Edit_appoin extends AppCompatActivity {
 
     public void Cancel(View view){
         Intent intent=new Intent(this, Appointment_confirm.class);
-        intent.putExtra("number",a1);
+
         startActivity(intent);
     }
     public void ClearControls(){

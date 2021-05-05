@@ -28,7 +28,7 @@ public class ClientDashboard extends AppCompatActivity {
         addApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ClientDashboard.this, ServiceView.class);
+                Intent intent = new Intent(ClientDashboard.this,addAppointment.class);
                 startActivity(intent);
             }
         });
