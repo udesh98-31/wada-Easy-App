@@ -8,8 +8,13 @@ public class Client {
   private String Date;
   private Integer Phone;
   private String ServiceType;
+    private String provider_no;
 
     public Client() {
+    }
+
+    public String getProvider_no() {
+        return provider_no;
     }
 
     public String getName() {

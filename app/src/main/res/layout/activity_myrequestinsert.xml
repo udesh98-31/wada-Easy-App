@@ -159,6 +159,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/date"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.706"
@@ -180,7 +181,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/edit_button"
+        android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#AD1457"
@@ -199,7 +200,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#AD1457"
-        android:onClick="onCancle"
         android:text="@string/cancel"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -239,6 +239,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="phone"
+        android:maxLength="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.706"

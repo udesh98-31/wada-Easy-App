@@ -104,11 +104,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/edit_button"
+        android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#AD1457"
-        android:onClick="updateConf"
         android:text="@string/update"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -124,7 +123,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#AD1457"
-        android:onClick="clientdash"
         android:text="@string/cancel"
         android:textSize="18sp"
         android:textStyle="bold"

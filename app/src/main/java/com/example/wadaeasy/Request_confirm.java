@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Request_confirm extends AppCompatActivity {
 
@@ -49,5 +50,12 @@ public class Request_confirm extends AppCompatActivity {
 
 
 
+    }
+
+    public void onCancle(View view){
+
+        Intent intent = new Intent(this,MyRequest.class);
+        startActivity(intent);
+        Toast.makeText(getBaseContext(),  "You just click the button",Toast.LENGTH_SHORT).show();
     }
 }

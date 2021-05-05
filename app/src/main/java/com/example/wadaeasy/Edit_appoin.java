@@ -36,7 +36,7 @@ public class Edit_appoin extends AppCompatActivity {
         setContentView(R.layout.activity_edit_appoin);
         this.setTitle("වැඩ Easy -Edit Appointment");
         ap= new Appointment();
-        ;
+
 
         name=findViewById(R.id.edtname);
         contact=findViewById(R.id.editphone);
@@ -49,7 +49,7 @@ public class Edit_appoin extends AppCompatActivity {
         pr_no1=findViewById(R.id.edtpr_no);
 
 
-        Edit=findViewById(R.id.edit_button);
+        Edit=findViewById(R.id.edit);
 
 
 
