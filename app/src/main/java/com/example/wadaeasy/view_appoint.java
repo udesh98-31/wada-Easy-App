@@ -26,6 +26,9 @@ public class view_appoint extends AppCompatActivity {
         setContentView(R.layout.activity_view_appoint);
         this.setTitle("වැඩ Easy -View");
 
+        Intent aboutScreen= getIntent();
+        String numberA=aboutScreen.getStringExtra("numbers");
+
 
         name=findViewById(R.id.name);
         contact=findViewById(R.id.contact1);
@@ -36,12 +39,11 @@ public class view_appoint extends AppCompatActivity {
         remark=findViewById(R.id.rem);
         status=findViewById(R.id.status);
 
-        Intent aboutScreen= getIntent();
-        String a1= aboutScreen.getStringExtra("numbers");
 
 
 
-        dbref = FirebaseDatabase.getInstance().getReference().child("Appointment").child(a1);
+
+        dbref = FirebaseDatabase.getInstance().getReference().child("Appointment").child(numberA);
         dbref.addValueEventListener(new ValueEventListener() {
 
 

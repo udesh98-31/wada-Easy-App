@@ -32,16 +32,16 @@ public class Appointment_confirm extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), view_appoint.class);
                 intent.putExtra("numbers",number1);
-                v.getContext().startActivity(intent);
+                v.getContext().startService(intent);
             }
         });
 
         manage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),Edit_appoin.class);
-                intent.putExtra("numbers",number1);
-                v.getContext().startActivity(intent);
+                Intent intent2 = new Intent(v.getContext(),Edit_appoin.class);
+                intent2.putExtra("numbers",number1);
+                v.getContext().startService(intent2);
             }
         });
 
