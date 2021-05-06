@@ -2,7 +2,7 @@ package com.example.wadaeasy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +18,7 @@ public class view_appoint extends AppCompatActivity {
 
     DatabaseReference dbref;
     TextView name,contact,email,location,date,time,remark,status;
-    Button edit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +26,9 @@ public class view_appoint extends AppCompatActivity {
         setContentView(R.layout.activity_view_appoint);
         this.setTitle("වැඩ Easy -View");
 
-        Intent aboutScreen= getIntent();
-        String numberA=aboutScreen.getStringExtra("numbers");
 
+        Intent aboutScreen2= getIntent();
+        String ap1= aboutScreen2.getStringExtra("numbers");
 
         name=findViewById(R.id.name);
         contact=findViewById(R.id.contact1);
@@ -43,7 +43,7 @@ public class view_appoint extends AppCompatActivity {
 
 
 
-        dbref = FirebaseDatabase.getInstance().getReference().child("Appointment").child(numberA);
+        dbref = FirebaseDatabase.getInstance().getReference().child("Appointment").child(ap1);
         dbref.addValueEventListener(new ValueEventListener() {
 
 
@@ -56,6 +56,7 @@ public class view_appoint extends AppCompatActivity {
                 String date1=snapshot.child("date").getValue().toString();
                 String time1=snapshot.child("time").getValue().toString();
                 String remark1=snapshot.child("remark").getValue().toString();
+                String providerNo=snapshot.child("provider_no").getValue().toString();
                 String status1=snapshot.child("status").getValue().toString();
 
                 name.setText(name1);
@@ -65,7 +66,7 @@ public class view_appoint extends AppCompatActivity {
                 date.setText(date1);
                 time.setText(time1);
                 remark.setText(remark1);
-                status.setText(status1);
+               status.setText(status1);
 
 
 

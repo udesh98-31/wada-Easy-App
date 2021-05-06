@@ -11,8 +11,17 @@ public class Appointment1 {
     private String time;
     private String Remark;
     private String ApoNo;
+    private String status;
 
-    public Appointment1(String name, Integer contact, String email, String provider_no,String ApoNo) {
+    public void setApoNo(String apoNo) {
+        ApoNo = apoNo;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Appointment1(String name, Integer contact, String email, String provider_no, String ApoNo) {
         this.name = name;
         this.contact = contact;
         this.email = email;

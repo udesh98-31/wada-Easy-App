@@ -34,7 +34,7 @@
         <activity android:name=".addAppointment"/>
         <activity android:name=".Edit_appoin"/>
         <activity android:name=".Appointment_confirm"/>
-        <activity android:name=".view_appoint"/>
+
         <activity android:name=".AppoimentVIewS"/>
         <activity android:name=".wantedlistview">
 
@@ -43,6 +43,9 @@
         </activity>
         <activity android:name=".AddService2" />
         <activity android:name=".AddService1"></activity>
+
+        <activity android:name=".view_appoint">
+        </activity>
     </application>
 
 </manifest>
