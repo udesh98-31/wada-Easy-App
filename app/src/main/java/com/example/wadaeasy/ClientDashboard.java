@@ -9,14 +9,17 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ClientDashboard extends AppCompatActivity {
-    Button addRequest, addApp,addfeedback,addrate;
+    Button addRequest, addApp,addfeedbackbt,addratebt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_dashboard);
         this.setTitle("වැඩ Easy ");
+
         addRequest = findViewById(R.id.button13);
         addApp = findViewById(R.id.button11);
+        addfeedbackbt = findViewById(R.id.button14);
+        addratebt = findViewById(R.id.rating);
 
         addRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +36,7 @@ public class ClientDashboard extends AppCompatActivity {
             }
         });
 
-        addfeedback.setOnClickListener(new View.OnClickListener() {
+        addfeedbackbt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ClientDashboard.this,Feedback.class);
@@ -41,7 +44,7 @@ public class ClientDashboard extends AppCompatActivity {
             }
         });
 
-        addrate.setOnClickListener(new View.OnClickListener() {
+        addratebt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ClientDashboard.this,Ratingbar.class);

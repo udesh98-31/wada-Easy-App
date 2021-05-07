@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ public class Appointment_confirm extends AppCompatActivity {
     Button manage;
     Button delete;
     DatabaseReference delref;
+
+    ImageView homebtnn,requestbtnn,backbtnn,appoinmentbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,13 @@ public class Appointment_confirm extends AppCompatActivity {
 
         Intent intent=getIntent();
         String number1=intent.getStringExtra("number");
+
+        //navigation bar
+        homebtnn = findViewById(R.id.homebtn);
+        requestbtnn = findViewById(R.id.requesttbtn);
+        backbtnn = findViewById(R.id.appoimentbtn);
+        appoinmentbtn =findViewById(R.id.backbtn);
+
 
         number=findViewById(R.id.ap_no);
         number.setText(number1);
@@ -84,6 +94,45 @@ public class Appointment_confirm extends AppCompatActivity {
 
             }
         });
+
+        homebtnn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Appointment_confirm.this,ClientDashboard.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+        requestbtnn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Appointment_confirm.this,myrequestinsert.class);
+                startActivity(intent);
+
+
+            }
+        });
+        backbtnn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Appointment_confirm.this,ClientDashboard.class);
+                startActivity(intent);
+
+
+            }
+        });
+        appoinmentbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Appointment_confirm.this,addAppointment.class);
+                startActivity(intent);
+
+
+            }
+        });
+
 
 
 

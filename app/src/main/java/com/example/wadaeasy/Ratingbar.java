@@ -19,7 +19,7 @@ public class Ratingbar extends AppCompatActivity {
         this.setTitle("වැඩ Easy -Rate App");
 
         ratingBar = findViewById(R.id.rating_bar);
-        btnSubmit = findViewById(R.id.btnSubmit);
+        btnSubmit = findViewById(R.id.submit);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

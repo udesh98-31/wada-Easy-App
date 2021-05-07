@@ -1,8 +1,10 @@
 package com.example.wadaeasy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -60,6 +62,13 @@ public class updaterequest extends AppCompatActivity {
                 String location = snapshot.child("location").getValue().toString();
                 String date = snapshot.child("date").getValue().toString();
 
+                txtname.setText(name);
+                txtlocation.setText(location);
+                txtcategory.setText(category);
+                txtdate.setText(date);
+                txtphone.setText(phone);
+                txtservicetype.setText(serviceType);
+
 
 
             }
@@ -74,42 +83,56 @@ public class updaterequest extends AppCompatActivity {
         Edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    //Alert
+                AlertDialog.Builder builder = new AlertDialog.Builder(updaterequest.this);
+                builder.setMessage("Do You Want To Upate Request ")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                dbreff = FirebaseDatabase.getInstance().getReference().child("Client");
-                dbreff.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                dbreff = FirebaseDatabase.getInstance().getReference().child("Client");
+                                dbreff.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                        if(snapshot.hasChild(a1)){
+                                        if(snapshot.hasChild(a1)){
 
-                            try{
+                                            try{
 
-                                client.setName(txtname.getText().toString().trim());
-                                client.setLocation(txtlocation.getText().toString().trim());
-                                client.setCategory(txtcategory.getText().toString().trim());
-                                client.setDate(txtdate.getText().toString().trim());
-                                client.setPhone(Integer.parseInt(txtphone.getText().toString().trim()));
-                                client.setServiceType(txtservicetype.getText().toString().trim());
+                                                client.setName(txtname.getText().toString().trim());
+                                                client.setLocation(txtlocation.getText().toString().trim());
+                                                client.setCategory(txtcategory.getText().toString().trim());
+                                                client.setDate(txtdate.getText().toString().trim());
+                                                client.setPhone(Integer.parseInt(txtphone.getText().toString().trim()));
+                                                client.setServiceType(txtservicetype.getText().toString().trim());
 
 
-                                dbreff.child(a1).setValue(client);
-                                ClearControls();
-                                Toast.makeText(getBaseContext(), "Your Request has been Updated", Toast.LENGTH_LONG).show();
 
+
+                                                dbreff.child(a1).setValue(client);
+                                                ClearControls();
+                                                Toast.makeText(getBaseContext(), "Your Request has been Updated", Toast.LENGTH_LONG).show();
+
+                                            }
+                                            catch (NumberFormatException e) {
+                                                Toast.makeText(getBaseContext(), "Enter Valid Format", Toast.LENGTH_LONG).show();
+                                            }
+                                        }else{
+                                            Toast.makeText(getBaseContext(), "No Source to update", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
                             }
-                            catch (NumberFormatException e) {
-                                Toast.makeText(getBaseContext(), "Enter Valid Format", Toast.LENGTH_LONG).show();
-                            }
-                        }else{
-                            Toast.makeText(getBaseContext(), "No Source to update", Toast.LENGTH_LONG).show();
-                        }
-                    }
+                        }).setNegativeButton("No", null);
+                            AlertDialog alert = builder.create();
+                            alert.show();
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
 
             }
         });

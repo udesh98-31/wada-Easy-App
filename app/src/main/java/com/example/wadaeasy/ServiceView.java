@@ -177,39 +177,7 @@ boolean isopen;
                     }
                 });
 
-        main=findViewById(R.id.addbtn);
-        home=findViewById(R.id.homebtn);
-        ap=findViewById(R.id.apoimentBtn);
-        fd = findViewById(R.id.feedback);
 
-        isopen = false;
-        main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(isopen){
-                    home.setVisibility(v.INVISIBLE);
-                    ap.setVisibility(v.INVISIBLE);
-                    fd.setVisibility(v.INVISIBLE);
-
-                    isopen = false;
-                }else{
-                    home.setVisibility(v.VISIBLE);
-                    ap.setVisibility(v.VISIBLE);
-                    fd.setVisibility(v.VISIBLE);
-
-                    isopen = true;
-                }
-            }
-        });
-        //Home Navigation
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ServiceView.this,ServiceHome2.class);
-                startActivity(intent);
-            }
-        });
 
     }
 

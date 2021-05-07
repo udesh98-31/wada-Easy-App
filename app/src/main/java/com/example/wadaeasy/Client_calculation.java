@@ -3,6 +3,7 @@ package com.example.wadaeasy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -22,6 +23,7 @@ public class Client_calculation extends AppCompatActivity {
     Client client;
 
     int countClients = 0;
+    String req_no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class Client_calculation extends AppCompatActivity {
 
                     Client.setText("No clients");
                 }
+
             }
 
             @Override

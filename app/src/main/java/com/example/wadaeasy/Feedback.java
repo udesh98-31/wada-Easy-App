@@ -36,10 +36,10 @@ public class Feedback extends AppCompatActivity {
         emaildata = findViewById(R.id.email);
         messagedat = findViewById(R.id.feedback);
 
-        submit = findViewById(R.id.btnSubmit);
+        submit = findViewById(R.id.button15);
 
         feedbackDetails = new FeedbackDetails();
-        dbreff = FirebaseDatabase.getInstance().getReference().child("Client");
+        dbreff = FirebaseDatabase.getInstance().getReference().child("FeedbackDetails");
         dbreff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -82,9 +82,9 @@ public class Feedback extends AppCompatActivity {
 
                         req_no=String.valueOf(maxid+1);
 
-                        Intent intent = new Intent(v.getContext(),feedbackretrive.class);
-                        intent.putExtra("number",req_no);
-                        v.getContext().startActivity(intent);
+                        //Intent intent = new Intent(v.getContext(),feedbackretrive.class);
+                        //intent.putExtra("number",req_no);
+                        //v.getContext().startActivity(intent);
 
 
 

@@ -27,6 +27,7 @@
     <string name="To">To</string>
     <string name="Name" />
     <string name="Area1input" />
+    <string name="AddNew"/>
     <string name="Area2input" />
     <string name="ServiceCharge">Service Charge (Per Hour) :</string>
     <string name="ServiceQulification">Service Qulification :</string>
@@ -50,6 +51,24 @@
     <string name="previous">Previous</string>
     <string name="test" />
     <string name="NameRead" />
+    <string name="Back">></string>
+    <string name="btnAppoiment">Appoiment</string>
+    <string name="image">Select Profile Picture :</string>
+    <string name="propic">Choose</string>
+    <string name="txt" />
+    <string name="more">More Infomation :</string>
+    <string name="morezinfoview" />
+    <string name="btnHome"></string>
+    <string name="UpdateNew">Edit Service</string>
+    <string name="NameUpdate" />
+    <string name="btnUpdate1">UPDATE</string>
+    <string name="btnUpdate">UPDATE</string>
+    <string name="ServiceName">Aluminiam</string>
+    <string name="ProviderName">Dinuka Nawanjana</string>
+    <string name="Area">Working Areas :</string>
+    <string name="Area1Service">Horana</string>
+    <string name="Area2Service">Panadura</string>
+
     <string name="MyService2">My Service</string>
     <string name="NameView">Name :</string>
     <string name="ServiceView">Service Type :</string>
@@ -75,6 +94,8 @@
     <string name="charge">Working Charge Per Hour (LKR) :</string>
     <string name="ChargeView" />
     <string name="MyService">My Service</string>
+
+
 
 
     <string-array name="service">

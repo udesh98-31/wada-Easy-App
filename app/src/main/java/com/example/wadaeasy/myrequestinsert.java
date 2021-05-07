@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,9 @@ public class myrequestinsert extends AppCompatActivity {
     Button btnconfirm, btncancle;
     DatabaseReference dbreff;
     Client client;
+    ImageView homebtnrt,requestbtnrt,backbtnrt,appoinmentbtrt;
+
+
 
     long maxid = 0;
     String req_no;
@@ -63,9 +67,13 @@ public class myrequestinsert extends AppCompatActivity {
         txtservicetype = findViewById(R.id.feedback);
 
 
+        //navigation bar
+        homebtnrt = findViewById(R.id.homebtrt);
+        requestbtnrt = findViewById(R.id.requesttbtrt);
+        appoinmentbtrt = findViewById(R.id.appoimentbtrt);
+        backbtnrt =findViewById(R.id.backbtrt);
 
 
-        btncancle =findViewById(R.id.rs_cancle);
         btnconfirm =findViewById(R.id.edit);
 
         //Initialize Validation Style
@@ -205,6 +213,43 @@ public class myrequestinsert extends AppCompatActivity {
 
         });
 
+        homebtnrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(myrequestinsert.this,ClientDashboard.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+        requestbtnrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(myrequestinsert.this,ClientDashboard.class);
+                startActivity(intent);
+
+
+            }
+        });
+        backbtnrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(myrequestinsert.this,ClientDashboard.class);
+                startActivity(intent);
+
+
+            }
+        });
+        appoinmentbtrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(myrequestinsert.this,addAppointment.class);
+                startActivity(intent);
+
+
+            }
+        });
 
     }
 
@@ -224,4 +269,6 @@ public class myrequestinsert extends AppCompatActivity {
         txtphone.setText(" ");
         txtservicetype.setText(" ");
         }
+
+
 }

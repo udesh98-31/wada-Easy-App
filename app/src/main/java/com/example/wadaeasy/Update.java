@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -43,10 +44,19 @@ public class Update extends AppCompatActivity {
     Button main,home,ap,fd;
     boolean isopen;
 
+    ImageView homebtnd,backbtnd,appoinmentbtd,addbtnd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
+
+        //navigation bar
+        homebtnd = findViewById(R.id.homebtd);
+        backbtnd = findViewById(R.id.backbtd);
+        appoinmentbtd = findViewById(R.id.appoimentbtd);
+        addbtnd =findViewById(R.id.addserd);
+
 
 
 
@@ -90,7 +100,7 @@ public class Update extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        com.example.wadaeasy.Update.this, new TimePickerDialog.OnTimeSetListener() {
+                        Update.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         hr = hourOfDay;
@@ -113,7 +123,7 @@ public class Update extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        com.example.wadaeasy.Update.this, new TimePickerDialog.OnTimeSetListener() {
+                        Update.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         hr = hourOfDay;
@@ -150,7 +160,7 @@ public class Update extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Please Enter Charges!",Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        Intent intent = new Intent(com.example.wadaeasy.Update.this, Update2.class);
+                        Intent intent = new Intent(Update.this, Update2.class);
                         intent.putExtra("NAME", Name.getText().toString());
                         intent.putExtra("AREA1", Area1.getText().toString());
                         intent.putExtra("AREA2", Area2.getText().toString());
@@ -178,41 +188,44 @@ public class Update extends AppCompatActivity {
                 }
             }
         });
-
-        main=findViewById(R.id.addbtn);
-        home=findViewById(R.id.homebtn);
-        ap=findViewById(R.id.apoimentBtn);
-        fd = findViewById(R.id.feedback);
-
-        isopen = false;
-        main.setOnClickListener(new View.OnClickListener() {
+        homebtnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(isopen){
-                    home.setVisibility(v.INVISIBLE);
-                    ap.setVisibility(v.INVISIBLE);
-                    fd.setVisibility(v.INVISIBLE);
-
-                    isopen = false;
-                }else{
-                    home.setVisibility(v.VISIBLE);
-                    ap.setVisibility(v.VISIBLE);
-                    fd.setVisibility(v.VISIBLE);
-
-                    isopen = true;
-                }
-            }
-        });
-        //Home Navigation
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Update.this,ServiceHome2.class);
+                Intent intent =  new Intent(Update.this,ServiceHome2.class);
                 startActivity(intent);
+
+
             }
         });
 
+
+        appoinmentbtd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Update.this,AppoimentVIewS.class);
+                startActivity(intent);
+
+
+            }
+        });
+        backbtnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Update.this,ServiceHome2.class);
+                startActivity(intent);
+
+
+            }
+        });
+        addbtnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(Update.this,ServiceView.class);
+                startActivity(intent);
+
+
+            }
+        });
 
     }
 }

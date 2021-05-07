@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -47,7 +48,7 @@ public class Edit_appoin extends AppCompatActivity {
         date=findViewById(R.id.editdate);
         time=findViewById(R.id.edtTime);
         email=findViewById(R.id.edtEmail);
-        status1=findViewById(R.id.edtstatus);
+        status1 = findViewById(R.id.edtstatus);
         pr_no1=findViewById(R.id.edtpr_no);
 
 
@@ -96,8 +97,12 @@ public class Edit_appoin extends AppCompatActivity {
 
 
         Edit.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
+
+
                 dbref2=FirebaseDatabase.getInstance().getReference().child("Appointment");
                 dbref2.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -112,6 +117,7 @@ public class Edit_appoin extends AppCompatActivity {
                                     ap.setTime(time.getText().toString().trim());
                                     ap.setRemark(remark.getText().toString().trim());
                                     ap.setEmail(email.getText().toString().trim());
+                                    ap.setStatus(status1.getText().toString().trim());
                                     ap.setProvider_no(pr_no1.getText().toString().trim());
 
 
@@ -144,7 +150,7 @@ public class Edit_appoin extends AppCompatActivity {
             public void onClick(View v) {
 
                         ClearControls();
-                        Intent intentCancel=new Intent(Edit_appoin.this,Appointment_confirm.class);
+                       Intent intentCancel=new Intent(Edit_appoin.this,Appointment_confirm.class);
                         intentCancel.putExtra("number",a1);
                         startActivity(intentCancel);
 

@@ -30,10 +30,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/cl_name"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="147dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.196"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -43,10 +45,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/cl_email"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="209dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.304"
         tools:ignore="InvalidId,MissingConstraints" />
 
     <EditText
@@ -56,10 +60,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/feedback"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.276"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="272dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.404"
         tools:ignore="MissingConstraints" />
 
     <ImageView
