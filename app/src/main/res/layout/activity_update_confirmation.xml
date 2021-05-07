@@ -23,11 +23,10 @@
         app:layout_constraintVertical_bias="0.048" />
 
     <Button
-        android:id="@+id/edit_button"
+        android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#AD1457"
-        android:onClick="updateConf"
         android:text="@string/update"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -43,7 +42,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#AD1457"
-        android:onClick="back"
         android:text="@string/cancel"
         android:textSize="18sp"
         android:textStyle="bold"

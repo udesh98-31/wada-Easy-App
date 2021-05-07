@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ClientDashboard extends AppCompatActivity {
-    Button addRequest, addApp;
+    Button addRequest, addApp,addfeedback,addrate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,22 @@ public class ClientDashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ClientDashboard.this,addAppointment.class);
+                startActivity(intent);
+            }
+        });
+
+        addfeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClientDashboard.this,Feedback.class);
+                startActivity(intent);
+            }
+        });
+
+        addrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClientDashboard.this,Ratingbar.class);
                 startActivity(intent);
             }
         });

@@ -40,6 +40,7 @@ public class RetriveRequestDetails extends AppCompatActivity {
         txtdate =findViewById(R.id.dateview);
         txtphone = findViewById(R.id.phoneview);
         txtservicetype = findViewById(R.id.spview);
+        buttonedit = findViewById(R.id.btnedit);
 
         Intent aboutScreen= getIntent();
         String a1= aboutScreen.getStringExtra("numbers");
@@ -76,13 +77,10 @@ public class RetriveRequestDetails extends AppCompatActivity {
 
 
 
-    }
-    public void onbuttonedit(View view){
 
-        Intent intent = new Intent(this,UpdateRequest.class);
-        startActivity(intent);
-        Toast.makeText(getApplicationContext(),  "You just click the button",Toast.LENGTH_SHORT).show();
     }
+
+
     public void onbtndelete(View view){
 
         Intent intent = new Intent(this,DeleteRequest.class);

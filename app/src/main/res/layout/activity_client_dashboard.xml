@@ -94,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#AD1457"
-        android:onClick="feedback"
+        android:gravity="center_horizontal"
         android:text="@string/feedbackbtn"
         android:textAlignment="center"
         android:textColor="#FAF6F6"
@@ -104,6 +104,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.745"
-        android:gravity="center_horizontal" />
+        app:layout_constraintVertical_bias="0.745" />
+
+    <Button
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#AD1457"
+        android:gravity="center_horizontal"
+        android:text="@string/ratingbtn"
+        android:textAlignment="center"
+        android:textColor="#FAF6F6"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.871" />
 </androidx.constraintlayout.widget.ConstraintLayout>

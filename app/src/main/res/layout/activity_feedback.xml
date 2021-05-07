@@ -20,170 +20,47 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
-
-    <TextView
-        android:id="@+id/cl_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name :"
-        android:textAlignment="center"
-        android:textColor="#0C0C0C"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.115"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.205" />
-
-    <TextView
-        android:id="@+id/cl_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email :"
-        android:textColor="#0C0C0C"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305" />
-
-    <TextView
-        android:id="@+id/cl_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Service Provider Name:"
-        android:textColor="#0B0B0B"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387" />
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Service Provider Number :"
-        android:textColor="#050505"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473" />
-
-    <TextView
-        android:id="@+id/cl_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Category :"
-        android:textColor="#090909"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.547" />
-
-    <TextView
-        android:id="@+id/cl_Stype"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feedback :"
-        android:textColor="#070707"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
+        app:layout_constraintVertical_bias="0.048"
+        android:gravity="center_horizontal" />
 
     <EditText
         android:id="@+id/cl_Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="306dp"
+        android:layout_height="54dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/cl_name"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cl_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.631"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="147dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/cl_Location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:layout_width="309dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/cl_email"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cl_location"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="209dp"
+        tools:ignore="InvalidId,MissingConstraints" />
 
     <EditText
-        android:id="@+id/s_Category"
-        android:layout_width="160dp"
+        android:id="@+id/feedback"
+        android:layout_width="317dp"
         android:layout_height="46dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/sp_name"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cl_category"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/cl_date"
-        android:layout_width="151dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/sp_number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/cl_Phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/category"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cl_phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/cl_service"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
         android:text="@string/feedback"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cl_Stype"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.756"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.276"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="272dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -207,9 +84,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.775" />
+        app:layout_constraintVertical_bias="0.61" />
 
     <ImageView
         android:id="@+id/imageView12"
