@@ -49,7 +49,7 @@ public class Edit_appoin extends AppCompatActivity {
         pr_no1=findViewById(R.id.edtpr_no);
 
 
-        Edit=findViewById(R.id.edit_button);
+        Edit=findViewById(R.id.edit);
 
 
 
