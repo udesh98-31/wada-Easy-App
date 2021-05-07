@@ -66,6 +66,9 @@ public class Appointment_confirm extends AppCompatActivity {
                         if(snapshot.hasChild(number1)){
                             delref=FirebaseDatabase.getInstance().getReference().child("Appointment").child(number1);
                             delref.removeValue();
+                            Intent intent2 = new Intent(Appointment_confirm.this,ClientDashboard.class);
+
+                            startActivity(intent2);
                             Toast.makeText(getBaseContext(), "Your Appointment has been Deleted", Toast.LENGTH_LONG).show();
                         }
                         else{
