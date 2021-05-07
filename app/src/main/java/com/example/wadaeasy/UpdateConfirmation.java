@@ -42,7 +42,7 @@ public class UpdateConfirmation extends AppCompatActivity {
         manage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),UpdateRequest.class);
+                Intent intent = new Intent(v.getContext(),updaterequest.class);
                 intent.putExtra("numbers",number1);
                 v.getContext().startActivity(intent);
             }

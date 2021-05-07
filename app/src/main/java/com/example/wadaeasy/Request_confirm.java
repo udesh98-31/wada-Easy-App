@@ -1,5 +1,6 @@
 package com.example.wadaeasy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,11 +10,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class Request_confirm extends AppCompatActivity {
 
     TextView number;
     Button preview;
     Button manage;
+    Button delete;
+    DatabaseReference deldbref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +38,53 @@ public class Request_confirm extends AppCompatActivity {
 
         preview=findViewById(R.id.view);
         manage=findViewById(R.id.edit);
+        delete=findViewById(R.id.delete);
 
         preview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),RetriveRequestDetails.class);
+                Intent intent = new Intent(Request_confirm.this,RetriveRequestDetails.class);
                 intent.putExtra("numbers",number1);
-                v.getContext().startActivity(intent);
+                startActivity(intent);
             }
         });
 
         manage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),UpdateRequest.class);
+                Intent intent = new Intent(Request_confirm.this,updaterequest.class);
                 intent.putExtra("numbers",number1);
-                v.getContext().startActivity(intent);
+                startActivity(intent);
             }
         });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deldbref= FirebaseDatabase.getInstance().getReference().child("Client");
+                deldbref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.hasChild(number1)){
+                            deldbref= FirebaseDatabase.getInstance().getReference().child("Client").child(number1);
+                            deldbref.removeValue();
+                            Toast.makeText(getBaseContext(), "Your Request has been Deleted", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(getBaseContext(), "No Source to delete", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
+
+
 
 
 

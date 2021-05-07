@@ -13,6 +13,9 @@ public class Client {
     public Client() {
     }
 
+    public static void setText(String no_clients) {
+    }
+
     public String getProvider_no() {
         return provider_no;
     }

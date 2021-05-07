@@ -3,7 +3,6 @@ package com.example.wadaeasy;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -61,7 +60,7 @@ public class myrequestinsert extends AppCompatActivity {
         txtcategory =findViewById(R.id.s_Category);
         txtdate =findViewById(R.id.cl_date);
         txtphone = findViewById(R.id.client_Phone);
-        txtservicetype = findViewById(R.id.cl_service);
+        txtservicetype = findViewById(R.id.feedback);
 
 
 
