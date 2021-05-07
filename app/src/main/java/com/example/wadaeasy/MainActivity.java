@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String email =Email.getText().toString();
+                //check mis match varible for password
                 String pwd=Password.getText().toString();
                 String Cpwd=Cpassword.getText().toString();
                 dbref= FirebaseDatabase.getInstance().getReference().child("User");

@@ -40,12 +40,14 @@
     <string name="Satuday">Satuday</string>
     <string name="Sunday">Sunday</string>
     <string name="MoreInfo">More Infomation :</string>
-    <string name="btnSubmit">ADD SERVICE</string>
+    <string name="btnSubmit">Submit</string>
     <string name="Contact">Contact Numbers </string>
     <string name="Number1">Number 1 :</string>
     <string name="Number2">Number 2 :</string>
     <string name="StartTime">08:00 AM</string>
     <string name="EndTime">05:00 PM</string>
+    <string name="manage">Manage</string>
+    <string name="previous">Previous</string>
     <string name="test" />
     <string name="NameRead" />
     <string name="MyService2">My Service</string>
@@ -65,7 +67,7 @@
     <string name="NameView2">Name :</string>
     <string name="Qualification">Qualification :</string>
     <string name="Qualificationview" />
-    <string name="phone2">Phone :</string>
+    <string name="phone">Phone :</string>
     <string name="phone1view" />
     <string name="Phone">Phone :</string>
     <string name="ph1" />
@@ -73,38 +75,6 @@
     <string name="charge">Working Charge Per Hour (LKR) :</string>
     <string name="ChargeView" />
     <string name="MyService">My Service</string>
-    <string name="moreview">More Infomation :</string>
-    <string name="Update">UPDATE</string>
-    <string name="more">More Infomation :</string>
-    <string name="morezinfoview" />
-    <string name="update">UPDATE</string>
-    <string name="delete">DELETE</string>
-    <string name="test2" />
-    <string name="NameUpdate" />
-    <string name="btnUpdate">UPDATE</string>
-    <string name="image">Select Profile Picture :</string>
-    <string name="propic">Choose</string>
-    <string name="txt" />
-    <string name="Update1">Update Service</string>
-    <string name="UpdateNew">Edit Service</string>
-    <string name="AddNew">Add Service</string>
-    <string name="Back">></string>
-    <string name="btnHome"></string>
-    <string name="btnAppoiment">Appoiment</string>
-    <string name="feedback">Feed Back</string>
-    <string name="Search" />
-    <string name="btn_Search">Search</string>
-    <string name="hintsearch">Search Here</string>
-    <string name="ListName">Name</string>
-    <string name="listService">Service</string>
-    <string name="ListArea1">Area1</string>
-    <string name="Listarea2">Area2</string>
-    <string name="ListView">View</string>
-    <string name="ServiceName">Aluminiam</string>
-    <string name="ProviderName">Dinuka Nawanjana</string>
-    <string name="Area1Service">Horana</string>
-    <string name="Area">Working Areas :</string>
-    <string name="Area2Service">Panadura</string>
 
 
     <string-array name="service">
@@ -123,4 +93,117 @@
     </string-array>
 
 
+    //headings
+    <string name="heading1">Add Appointment</string>//heading
+    <string name="edit_appointment">Edit Appointment</string>//heading 2
+    <string name="delete_appointment">Delete Appointment</string>//heading 3
+    <string name="Search">Search Service</string>//heading 4
+    <string name="Results">Results</string>//heading5
+    <string name="Manage_appoint">My Appointments</string>//heading6
+
+    //form details
+    <string name="Cl_Name">Name</string>sir arae
+    <string name="Cl_location">Location</string>
+    <string name="Cl_phone">Contact</string>
+    <string name="ap_time">Time</string>
+    <string name="ap_date">Date</string>
+    <string name="ap_type">Type</string>
+    <string name="prov_no">Provider No</string>
+    <string name="cl_Remark">Remark</string>
+    <string name="qualification">Qualification</string>
+    <string name="status">Status</string>
+    <string name="working_day">Working_days</string>
+    <string name="Email1">email</string>
+    <string name="prov_area">Areas</string>
+
+    //preview,edit,delete
+
+    <string name="Appoin_no">Appointment No</string>
+    <string name="Appoin_details">Appointment Details</string>
+
+    //alerts and Buttons
+    <string name="add">Confirm</string>//button
+    <string name="cancel">cancel</string>//button
+    <string name="edit">Edit</string>//button
+    <string name="delete">delete</string>//button
+    <string name="Search_b">Search</string>//button
+    <string name="view_p">View profile</string>//button
+    <string name="preview">Preview</string>//button
+    <string name="book">Book</string>//button
+    <string name="quote">Get Quote</string>//button
+
+    <string name="option_1">Yes</string>//button
+    <string name="option_2">No</string>//button
+    <string name="option_3">Close</string>//button
+
+    //alert messages
+    <string name="update_Alert">Update?</string>
+    <string name="Confirm_Alert">Confirm?</string>
+    <string name="Alert_msg">Your Appointment has been updated</string>
+    <string name="Alert_msg2">Are you sure you want to delete?</string>
+    <string name="Alert_msg3">Didnt find what you are looking for?</string>
+
+    <string name="prov_name">provider</string>
+    <string name="updatereq">Updated Appointment</string>
+    <string name="delete_app">Deleted Appointment</string>
+    <string name="dashboard"><![CDATA[<-]]></string>
+    <string name="BookinREq">Booking Request</string>
+    <string name="confirmAP">Confirm Appoiment</string>
+    <string name="Loding">Loding......</string>
+    <string name="Sortmsg">Enter short msg for custoer</string>
+    <string name="shortmsgforcustomer">Enter short msg for customer</string>
+    <string name="Quote">Quote</string>
+
+    //Request(Thiranya)
+
+
+    //headings
+    <string name="request_service">Request Service</string>
+    <string name="my_request">My Request</string>
+    <string name="update_request">Update Request</string>
+    <string name="delete_request">Delete Request</string>
+
+    //form details
+    <string name="cl_name">Name</string>
+    <string name="cl_email">Email</string>
+    <string name="cl_location">Location</string>
+    <string name="category">Category</string>
+    <string name="date">Date</string>
+    <string name="phonereq">Phone</string>
+    <string name="service_type">Service Type</string>
+    <string name="request_number">Request Number</string>
+    <string name="sp_name">Service Provider Name</string>
+    <string name="cl_requestedDetails">Requested Service</string>
+    <string name="sp_number">Service Provider Number</string>
+    <string name="feedback">Feedback</string>
+
+    //alerts and buttons
+    <string name="submit">Submit</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancelreq">Cancel</string>
+    <string name="previewreq">Preview</string>
+    <string name="update">Update</string>
+    <string name="editreq">Edit</string>
+    <string name="deletereq">Delete</string>
+    <string name="close">Close</string>
+    <string name="back">Back</string>
+
+    //alert messages
+    <string name="delete_alert">Delete</string>
+    <string name="edit_alert">Update</string>
+    <string name="delete_alert_msg">Your Request has been deleted successfully</string>
+    <string name="edit_alert_msg">Your Request has been updated successfully</string>
+
+    //client dashboard
+    <string name="search">Search Service</string>
+    <string name="appointment">Appointment</string>
+    <string name="requestservice">Request Service</string>
+    <string name="myrequest">My request</string>
+    <string name="feedbackbtn">Feedback</string>
+    <string name="invalid_name">Please Enter Valid Name</string>
+    <string name="invalid_mobile">Please Enter a Valid Number</string>
+    <string name="ratingbtn">Rate Us</string>
+
+
 </resources>
+
