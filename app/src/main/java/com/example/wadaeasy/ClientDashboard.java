@@ -33,10 +33,10 @@ public class ClientDashboard extends AppCompatActivity {
             }
         });
 
-       /* addfeedback.setOnClickListener(new View.OnClickListener() {
+        addfeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ClientDashboard.this,Ratingbar.class);
+                Intent intent = new Intent(ClientDashboard.this,Feedback.class);
                 startActivity(intent);
             }
         });
@@ -44,10 +44,10 @@ public class ClientDashboard extends AppCompatActivity {
         addrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ClientDashboard.this,Feedback.class);
+                Intent intent = new Intent(ClientDashboard.this,Ratingbar.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
 }
