@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".wantedlistview">
+    app:layoutDescription="@xml/activity_appoiment_list_activity_scene"
+    tools:context=".Appoiment_list_activity">
 
     <ListView
-        android:id="@+id/wantedlistV"
+        android:id="@+id/Apoimentlist"
+        style="@style/Widget.AppCompat.ListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EADCE2" />
-
+        android:background="#EADCE2"
+        android:textSize="20dp"/>
 </LinearLayout>

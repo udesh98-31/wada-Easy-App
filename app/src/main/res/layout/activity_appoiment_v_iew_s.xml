@@ -26,6 +26,7 @@
             android:layout_width="47dp"
             android:layout_height="64dp"
             android:layout_marginRight="16dp"
+
             android:layout_weight="1"
             android:scaleType="fitStart"
             android:tint="#C80522"
@@ -46,17 +47,17 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="290dp"
-        android:layout_height="425dp"
+        android:layout_width="286dp"
+        android:layout_height="343dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.859"
+        app:layout_constraintHorizontal_bias="0.889"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.386">
+        app:layout_constraintVertical_bias="0.362">
 
         <TextView
             android:id="@+id/lcationtxt"
@@ -105,19 +106,10 @@
         <TextView
             android:id="@+id/nametxt"
             android:layout_width="match_parent"
-            android:layout_height="99dp"
+            android:layout_height="46dp"
             android:text="@string/Loding"
             android:textColor="#031683"
 
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/RemarkEdittxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/shortmsgforcustomer"
-            android:inputType="textPersonName"
             android:textSize="18sp" />
 
         <Button
@@ -135,8 +127,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="75dp"
-        android:layout_height="387dp"
+        android:layout_width="73dp"
+        android:layout_height="339dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:orientation="vertical"
@@ -145,13 +137,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.322">
+        app:layout_constraintVertical_bias="0.35">
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="12dp"
             android:tint="#000000"
             app:srcCompat="@drawable/ic_location" />
 
@@ -194,6 +186,46 @@
             android:layout_height="wrap_content"
             android:tint="#000000"
             app:srcCompat="@drawable/ic_user" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageView
+            android:id="@+id/homebt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_home" />
+
+        <ImageView
+            android:id="@+id/appoimentbt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_apoiment" />
+
+
+        <ImageView
+            android:id="@+id/imageView27"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_myservice" />
+
+        <ImageView
+            android:id="@+id/backbt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_back" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

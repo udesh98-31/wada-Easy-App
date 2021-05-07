@@ -11,13 +11,17 @@ public class Appointment {
     private String time;
     private String Remark;
     private String ApoNo;
+    private String Status;
 
-    public Appointment(String name, Integer contact, String email, String provider_no,String ApoNo) {
+
+
+    public Appointment(String name, Integer contact, String email, String provider_no, String ApoNo, String Status) {
         this.name = name;
         this.contact = contact;
         this.email = email;
         this.provider_no = provider_no;
         this.ApoNo=ApoNo;
+        this.Status=Status;
     }
 
     public Appointment() {
@@ -87,9 +91,23 @@ public class Appointment {
         Remark = remark;
     }
 
-    public String getApoNo(){return  ApoNo;}
+
+
+    public String getStatus() {
+        return Status;
+    }
 
     public void setStatus(String status) {
-        this.ApoNo=ApoNo;
+        Status = status;
     }
+
+    public String getApoNo() {
+        return ApoNo;
+    }
+
+    public void setApoNo(String apoNo) {
+        ApoNo = apoNo;
+    }
+
+
 }
