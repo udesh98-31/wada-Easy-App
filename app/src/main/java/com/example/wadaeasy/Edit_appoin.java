@@ -22,10 +22,9 @@ public class Edit_appoin extends AppCompatActivity {
 
     EditText name,contact,location,remark,date ,time,email;
     TextView pr_no1,status1;
-    Button Edit;
+    Button Edit,back;
     DatabaseReference dbref,dbref2;
     Appointment ap;
-
 
 
 
@@ -35,8 +34,11 @@ public class Edit_appoin extends AppCompatActivity {
         setContentView(R.layout.activity_edit_appoin);
         this.setTitle("වැඩ Easy -Edit Appointment");
         ap= new Appointment();
+
+
         Intent aboutScreen1= getIntent();
         String a1=aboutScreen1.getStringExtra("numbers");
+
 
         name=findViewById(R.id.edtname);
         contact=findViewById(R.id.editphone);
@@ -49,8 +51,8 @@ public class Edit_appoin extends AppCompatActivity {
         pr_no1=findViewById(R.id.edtpr_no);
 
 
-        Edit=findViewById(R.id.edit);
-
+        Edit=findViewById(R.id.edit_btn);
+        back=findViewById(R.id.cancel_editt);
 
 
         dbref = FirebaseDatabase.getInstance().getReference().child("Appointment").child(a1);
@@ -65,10 +67,10 @@ public class Edit_appoin extends AppCompatActivity {
                 String date1=snapshot.child("date").getValue().toString();
                 String time1=snapshot.child("time").getValue().toString();
                 String remark1=snapshot.child("remark").getValue().toString();
-
+                String statusA=snapshot.child("status").getValue().toString();
                 //only retriving these values not updating we need to push it back else record gets altered
                 String email1=snapshot.child("email").getValue().toString();
-                String status=snapshot.child("status").getValue().toString();
+
                 String prov_no1=snapshot.child("provider_no").getValue().toString();
 
                 name.setText(name1);
@@ -78,7 +80,7 @@ public class Edit_appoin extends AppCompatActivity {
                 date.setText(date1);
                 time.setText(time1);
                 remark.setText(remark1);
-                status1.setText(status);
+                status1.setText(statusA);
                 pr_no1.setText(prov_no1);
 
 
@@ -109,7 +111,6 @@ public class Edit_appoin extends AppCompatActivity {
                                     ap.setDate(date.getText().toString().trim());
                                     ap.setTime(time.getText().toString().trim());
                                     ap.setRemark(remark.getText().toString().trim());
-                                    ap.setStatus(status1.getText().toString().trim());
                                     ap.setEmail(email.getText().toString().trim());
                                     ap.setProvider_no(pr_no1.getText().toString().trim());
 
@@ -119,9 +120,8 @@ public class Edit_appoin extends AppCompatActivity {
                                     dbref2.child(a1).setValue(ap);
                                     ClearControls();
                                     Toast.makeText(getBaseContext(), "Your Appointment has been Updated", Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(v.getContext(), Appointment_confirm.class);
-                                    intent.putExtra("number",a1);
-                                    v.getContext().startActivity(intent);
+
+
 
                                 } catch (NumberFormatException e) {
                                     Toast.makeText(getBaseContext(), "Enter Valid Format", Toast.LENGTH_LONG).show();
@@ -139,6 +139,19 @@ public class Edit_appoin extends AppCompatActivity {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                        ClearControls();
+                        Intent intentCancel=new Intent(Edit_appoin.this,Appointment_confirm.class);
+                        intentCancel.putExtra("number",a1);
+                        startActivity(intentCancel);
+
+
+            }
+        });
+
 
 
 
@@ -148,11 +161,6 @@ public class Edit_appoin extends AppCompatActivity {
 
 
 
-    public void Cancel(View view){
-        Intent intent=new Intent(this, Appointment_confirm.class);
-
-        startActivity(intent);
-    }
     public void ClearControls(){
         name.setText(" ");
         contact.setText(" ");

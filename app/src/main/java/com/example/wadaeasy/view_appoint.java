@@ -3,6 +3,8 @@ package com.example.wadaeasy;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +20,7 @@ public class view_appoint extends AppCompatActivity {
 
     DatabaseReference dbref;
     TextView name,contact,email,location,date,time,remark,status;
-
+    Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,7 @@ public class view_appoint extends AppCompatActivity {
         status=findViewById(R.id.status);
 
 
-
+        back=findViewById(R.id.back);
 
 
         dbref = FirebaseDatabase.getInstance().getReference().child("Appointment").child(ap1);
@@ -74,6 +76,16 @@ public class view_appoint extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent back=new Intent(view_appoint.this,Appointment_confirm.class);
+                back.putExtra("number",ap1);
+                startActivity(back);
 
             }
         });

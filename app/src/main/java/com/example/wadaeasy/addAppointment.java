@@ -56,6 +56,7 @@ public class addAppointment extends AppCompatActivity {
         ca1=new confirmAppointment();
 
         btnConfirm=findViewById(R.id.ap_confirm);
+        btnCancel=findViewById(R.id.ap_cancel);
         dbref= FirebaseDatabase.getInstance().getReference().child("Appointment");
         dbref2=FirebaseDatabase.getInstance().getReference().child("Confirm Appointment");
         dbref.addValueEventListener(new ValueEventListener() {
@@ -146,6 +147,15 @@ public class addAppointment extends AppCompatActivity {
             }
         });
 
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearControls();
+                Intent intentback=new Intent(addAppointment.this,ClientDashboard.class);
+                startActivity(intentback);
+            }
+        });
+
 
 
 
@@ -153,8 +163,6 @@ public class addAppointment extends AppCompatActivity {
 
 
             }
-
-
 
             public void ClearControls(){
         txtname.setText(" ");
