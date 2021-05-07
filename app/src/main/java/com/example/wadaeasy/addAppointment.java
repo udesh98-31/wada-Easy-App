@@ -23,7 +23,7 @@ public class addAppointment extends AppCompatActivity {
     EditText txtname,txtContact,txtEmail,txtProvno,txtloc,txtDate,txtTime,txtRem;
     Button btnConfirm,btnCancel,show;
     DatabaseReference dbref,dbref2;
-    Appointment1 ap1;
+    Appointment ap1;
     confirmAppointment ca1;
 
     long maxid=0;
@@ -52,7 +52,7 @@ public class addAppointment extends AppCompatActivity {
 
         //txtProvno.setText(n1);
 
-        ap1=new Appointment1();
+        ap1= new Appointment();
         ca1=new confirmAppointment();
 
         btnConfirm=findViewById(R.id.ap_confirm);
@@ -116,7 +116,7 @@ public class addAppointment extends AppCompatActivity {
                         ca1.setEmail(txtEmail.getText().toString().trim());
                         ca1.setLocation(txtloc.getText().toString().trim());
                         ca1.setDate(txtDate.getText().toString().trim());
-                        ca1.setStatus("Pending".trim());
+                        ca1.setStatus("Pending");
                         ca1.setAppointNo(Long.parseLong(String.valueOf(maxid+1)));
                         ca1.setTime(txtTime.getText().toString().trim());
                         ca1.setRemark(txtRem.getText().toString().trim());
@@ -124,13 +124,13 @@ public class addAppointment extends AppCompatActivity {
 
                         dbref.child(String.valueOf(maxid+1)).setValue(ap1);
                         //service provider id
-                        dbref2.child(String.valueOf("GONKrD3rJSaHu7BKAYpEu2XROt02")).setValue(ca1);
+                        dbref2.child(String.valueOf("hwWcQO0BD9ftY4cVeOI5lrYnzaq1")).setValue(ca1);
 
                         Toast.makeText(getBaseContext(),"Your Appointment has been confirmed",Toast.LENGTH_LONG).show();
 
                         ap_no=String.valueOf(maxid+1);
 
-                        Intent intent = new Intent(v.getContext(), Appointment_confirm.class);
+                        Intent intent = new Intent(v.getContext(),Appointment_confirm.class);
                         intent.putExtra("number",ap_no);
                         v.getContext().startActivity(intent);
                     }
@@ -153,6 +153,8 @@ public class addAppointment extends AppCompatActivity {
 
 
             }
+
+
 
             public void ClearControls(){
         txtname.setText(" ");

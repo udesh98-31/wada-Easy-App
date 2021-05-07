@@ -5,14 +5,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Appointment_confirm extends AppCompatActivity {
 
     TextView number;
     Button preview;
     Button manage;
+    Button delete;
+    DatabaseReference delref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,22 +36,49 @@ public class Appointment_confirm extends AppCompatActivity {
 
         preview=findViewById(R.id.view);
         manage=findViewById(R.id.manage);
+        delete=findViewById(R.id.delete);
 
         preview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), view_appoint.class);
-                intent.putExtra("numbers",number1);
-                v.getContext().startService(intent);
+                Intent intents = new Intent(Appointment_confirm.this,view_appoint.class);
+                intents.putExtra("numbers",number1);
+                startActivity(intents);
             }
         });
 
         manage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(v.getContext(),Edit_appoin.class);
-                intent2.putExtra("numbers",number1);
-                v.getContext().startService(intent2);
+                Intent intents = new Intent(Appointment_confirm.this,Edit_appoin.class);
+                intents.putExtra("numbers",number1);
+                startActivity(intents);
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                delref= FirebaseDatabase.getInstance().getReference().child("Appointment");
+                delref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.hasChild(number1)){
+                            delref=FirebaseDatabase.getInstance().getReference().child("Appointment").child(number1);
+                            delref.removeValue();
+                            Toast.makeText(getBaseContext(), "Your Appointment has been Deleted", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(getBaseContext(), "No Source to delete", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
             }
         });
 
