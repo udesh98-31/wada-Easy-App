@@ -1,8 +1,15 @@
 package com.example.wadaeasy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -49,6 +56,14 @@ public class Update2 extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+
+            NotificationChannel channel = new NotificationChannel("Notification","Notification",NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+
+        }
 
         Intent i = getIntent();
         e_time = i.getStringExtra("ETIME");
@@ -175,6 +190,17 @@ public class Update2 extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Service Update Successfully !", Toast.LENGTH_SHORT).show();
 
                         startActivity(intent);
+
+                        String message ="Your Service is Updated!";
+                        NotificationCompat.Builder builder = new NotificationCompat.Builder(Update2.this,"Notification");
+                                builder.setSmallIcon(R.drawable.update_24);
+                                builder.setContentTitle("Service Update");
+                                builder.setContentText(message);
+                                builder.setAutoCancel(true);
+
+                        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(Update2.this);
+                        managerCompat.notify(1,builder.build());
+
                     }
                 }catch (NumberFormatException e){
                     Toast.makeText(getApplicationContext(),"Invalid",Toast.LENGTH_SHORT).show();

@@ -1,7 +1,10 @@
 package com.example.wadaeasy;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +17,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -76,6 +81,14 @@ EditText txt;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_service2);
         this.setTitle("වැඩ Easy - Add Service");
+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+
+            NotificationChannel channel = new NotificationChannel("Notification","Notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+
+        }
 
         progressDialog = new ProgressDialog(AddService2.this);
 
@@ -205,6 +218,16 @@ EditText txt;
                         Toast.makeText(getApplicationContext(), "Service Added Successfully !", Toast.LENGTH_SHORT).show();
                         clear();
                         startActivity(intent);
+
+                        String message ="Your Service is Added!";
+                        NotificationCompat.Builder builder = new NotificationCompat.Builder(AddService2.this,"Notification");
+                        builder.setSmallIcon(R.drawable.update_24);
+                        builder.setContentTitle("Add Service");
+                        builder.setContentText(message);
+                        builder.setAutoCancel(true);
+
+                        NotificationManagerCompat managerCompat=NotificationManagerCompat.from(AddService2.this);
+                        managerCompat.notify(1,builder.build());
 
 
 

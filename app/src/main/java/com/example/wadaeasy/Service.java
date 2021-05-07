@@ -1,6 +1,7 @@
 package com.example.wadaeasy;
 
 public class Service {
+
     String Name;
     String Service;
     String Area1;
@@ -18,6 +19,14 @@ public class Service {
     String Day4;
     String Day5;
     String Day6;
+
+    public Service(String name, String service, String area1, String area2) {
+        Name = name;
+        Service = service;
+        Area1 = area1;
+        Area2 = area2;
+    }
+
     String Day7;
     String uid;
 

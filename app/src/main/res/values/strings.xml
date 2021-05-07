@@ -89,9 +89,22 @@
     <string name="UpdateNew">Edit Service</string>
     <string name="AddNew">Add Service</string>
     <string name="Back">></string>
-    <string name="btnHome">Home</string>
+    <string name="btnHome"></string>
     <string name="btnAppoiment">Appoiment</string>
     <string name="feedback">Feed Back</string>
+    <string name="Search" />
+    <string name="btn_Search">Search</string>
+    <string name="hintsearch">Search Here</string>
+    <string name="ListName">Name</string>
+    <string name="listService">Service</string>
+    <string name="ListArea1">Area1</string>
+    <string name="Listarea2">Area2</string>
+    <string name="ListView">View</string>
+    <string name="ServiceName">Aluminiam</string>
+    <string name="ProviderName">Dinuka Nawanjana</string>
+    <string name="Area1Service">Horana</string>
+    <string name="Area">Working Areas :</string>
+    <string name="Area2Service">Panadura</string>
 
 
     <string-array name="service">

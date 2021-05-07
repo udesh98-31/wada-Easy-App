@@ -255,6 +255,7 @@
         android:textColorHighlight="#A84C4C"
         android:textSize="18sp"
         app:backgroundTint="#A14E4E"
+        app:cornerRadius="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.965"
@@ -341,10 +342,11 @@
         android:layout_marginLeft="12dp"
         android:layout_marginTop="12dp"
         android:paddingLeft="5dp"
-        android:visibility="invisible"
         android:paddingRight="5dp"
-        android:text="@string/btnHome"
+        android:text="@string/"
         android:textSize="12sp"
+        android:visibility="invisible"
+        app:icon="@drawable/ic_baseline_home_24"
         app:layout_constraintStart_toEndOf="@+id/addbtn"
         app:layout_constraintTop_toTopOf="parent" />
 
