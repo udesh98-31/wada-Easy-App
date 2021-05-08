@@ -1,8 +1,10 @@
 package com.example.wadaeasy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -59,27 +61,44 @@ public class Request_confirm extends AppCompatActivity {
         });
 
         delete.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
-                deldbref= FirebaseDatabase.getInstance().getReference().child("Client");
-                deldbref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.hasChild(number1)){
-                            deldbref= FirebaseDatabase.getInstance().getReference().child("Client").child(number1);
-                            deldbref.removeValue();
-                            Toast.makeText(getBaseContext(), "Your Request has been Deleted", Toast.LENGTH_LONG).show();
-                        }
-                        else{
-                            Toast.makeText(getBaseContext(), "No Source to delete", Toast.LENGTH_LONG).show();
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                //Alert
+                AlertDialog.Builder builder = new AlertDialog.Builder(Request_confirm.this);
+                builder.setMessage("Do You Want To Delete Your Request ")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener(){
 
-                    }
-                });
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                deldbref= FirebaseDatabase.getInstance().getReference().child("Client");
+                                deldbref.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if(snapshot.hasChild(number1)){
+                                            deldbref= FirebaseDatabase.getInstance().getReference().child("Client").child(number1);
+                                            deldbref.removeValue();
+                                            Toast.makeText(getBaseContext(), "Your Request has been Deleted", Toast.LENGTH_LONG).show();
+                                        }
+                                        else{
+                                            Toast.makeText(getBaseContext(), "No Source to delete", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+
+                            }
+
+                        }).setNegativeButton("No", null);
+                            AlertDialog alert = builder.create();
+                            alert.show();
 
             }
         });
