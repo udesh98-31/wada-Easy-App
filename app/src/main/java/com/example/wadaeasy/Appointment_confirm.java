@@ -1,5 +1,6 @@
 package com.example.wadaeasy;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -69,8 +71,16 @@ public class Appointment_confirm extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delref= FirebaseDatabase.getInstance().getReference().child("Appointment");
-                delref.addListenerForSingleValueEvent(new ValueEventListener() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Appointment_confirm.this);
+                builder.setMessage("Do You Want To Delete Appointment ")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+
+
+                            delref= FirebaseDatabase.getInstance().getReference().child("Appointment");
+                           delref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.hasChild(number1)){
@@ -93,7 +103,11 @@ public class Appointment_confirm extends AppCompatActivity {
                 });
 
             }
-        });
+        });   builder.setNegativeButton("No", null);
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+                                  });
 
         homebtnn.setOnClickListener(new View.OnClickListener() {
             @Override
