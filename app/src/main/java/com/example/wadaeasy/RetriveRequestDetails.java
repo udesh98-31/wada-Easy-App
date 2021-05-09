@@ -19,14 +19,9 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class RetriveRequestDetails extends AppCompatActivity {
-
-
     TextView txtname, txtlocation, txtcategory, txtdate, txtphone, txtservicetype;
     Button buttonedit,btndelete;
     DatabaseReference dbreff;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +68,6 @@ public class RetriveRequestDetails extends AppCompatActivity {
 
                                          }
                                      });
-
-
-
-
 
     }
 

@@ -103,10 +103,6 @@ public class Request_confirm extends AppCompatActivity {
             }
         });
 
-
-
-
-
     }
 
     public void onCancle(View view){
