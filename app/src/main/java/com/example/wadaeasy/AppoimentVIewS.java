@@ -37,11 +37,12 @@ public class AppoimentVIewS extends AppCompatActivity {
        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appoiment_v_iew_s);
         this.setTitle("වැඩ Easy-View Appoiment");
-
+        //get current user id
         user= FirebaseAuth.getInstance().getCurrentUser();
         uid=user.getUid();
-
+        //nav button
         homebtn=findViewById(R.id.homebt);
+        backbtn=findViewById(R.id.backbt);
 
         Location=findViewById(R.id.lcationtxt);
         Date=findViewById(R.id.datetxt);
@@ -59,8 +60,6 @@ public class AppoimentVIewS extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-
-
                         apno1=snapshot.child("appointNo").getValue().toString();
                         contact1=snapshot.child("contact").getValue().toString();
                         Date1=snapshot.child("date").getValue().toString();
@@ -72,16 +71,12 @@ public class AppoimentVIewS extends AppCompatActivity {
                         proid=snapshot.child("uid").getValue().toString();
                         remark1=snapshot.child("remark").getValue().toString();
 
-
-
-                        Location.setText(location1);
-                        Date.setText(Date1);
-                        Time.setText(time1);
-                        Contact.setText(contact1);
-                        Remark.setText(remark1);
-                        Name.setText(statu1);
-
-
+                        Location.setText("Location-"+location1);
+                        Date.setText("Date-"+Date1);
+                        Time.setText("Time-"+time1);
+                        Contact.setText("Contact-"+contact1);
+                        Remark.setText("Remark-"+remark1);
+                        Name.setText("Customer-"+name1);
 
                     }
 
@@ -139,14 +134,9 @@ public class AppoimentVIewS extends AppCompatActivity {
                                             });
 
                                             Toast.makeText(AppoimentVIewS.this, "Sucsessful", Toast.LENGTH_SHORT).show();
-
-
-
                                         }
                                         else {
                                             Toast.makeText(AppoimentVIewS.this, "unsucsess", Toast.LENGTH_SHORT).show();
-
-
                                         }
                                     }
 
@@ -155,9 +145,6 @@ public class AppoimentVIewS extends AppCompatActivity {
 
                                     }
                                 });
-
-
-
                             }
                         }).setNegativeButton("No", null);
                           AlertDialog alert = builder.create();
@@ -217,14 +204,9 @@ public class AppoimentVIewS extends AppCompatActivity {
                                                     });
 
                                                     Toast.makeText(AppoimentVIewS.this, "Successfully Cancel", Toast.LENGTH_SHORT).show();
-
-
-
                                                 }
                                                 else {
                                                     Toast.makeText(AppoimentVIewS.this, "Unsuccessfully", Toast.LENGTH_SHORT).show();
-
-
                                                 }
                                             }
 
@@ -233,16 +215,10 @@ public class AppoimentVIewS extends AppCompatActivity {
 
                                             }
                                         });
-
-
-
-
                                     }
                                 }).setNegativeButton("No", null);
                                    AlertDialog alert = builder.create();
                                    alert.show();
-
-
                     }
                 });
 
@@ -252,17 +228,14 @@ public class AppoimentVIewS extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent intent =  new Intent(AppoimentVIewS.this,ServiceHome2.class);
                         startActivity(intent);
-
-
                     }
                 });
-
-
-
-
-
-
+                /*homebtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    Intent intent =  new Intent(AppoimentVIewS.this,ServiceHome2.class);
+                    startActivity(intent);
+                    }
+                });*/
     }
-
-
 }

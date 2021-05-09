@@ -41,7 +41,7 @@ String id;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Switch.this, ServiceHome2.class);
-                Intent intent2 = new Intent(Switch.this, serviceHome.class);
+                //Intent intent2 = new Intent(Switch.this, serviceHome.class);
                 refdb = FirebaseDatabase.getInstance().getReference().child("Service");
                 refdb.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -50,7 +50,7 @@ String id;
                             startActivity(intent);
                         }
                         else if(!(snapshot.child(user.getUid()).exists())){
-                           startActivity(intent2);
+                           startActivity(intent);
                         }
 
                     }

@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Assign to layout Id
         mFirebaseAuth = FirebaseAuth.getInstance();
         FirstName=findViewById(R.id.FirstN);
         LastName=findViewById(R.id.LastN);
@@ -40,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         Password=findViewById(R.id.Password);
         Cpassword=findViewById(R.id.CPassword);
         textlogin=findViewById(R.id.tvlogin);
-
-
         btnsign=findViewById(R.id.btsign);
 
         ac=new User();
@@ -50,14 +49,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String email =Email.getText().toString();
-                //check mis match varible for password
+                //assign password and confirm pasword value to variabale for Compare
                 String pwd=Password.getText().toString();
                 String Cpwd=Cpassword.getText().toString();
                 dbref= FirebaseDatabase.getInstance().getReference().child("User");
-                //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
-
-
 
                     if(TextUtils.isEmpty(FirstName.getText().toString()))
                         Toast.makeText(getApplicationContext(),"Enter valid First name",Toast.LENGTH_SHORT).show();
@@ -80,37 +75,28 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(!task.isSuccessful()){
-                                    Toast.makeText(MainActivity.this,"SignUp Unsuccessful, Please Try Again",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this,"Something went wrong, Please Try Again",Toast.LENGTH_SHORT).show();
                                 }
                                 else {
                                     ac.setFirstName(FirstName.getText().toString().trim());
                                     ac.setLastName(LastName.getText().toString().trim());
                                     ac.setEmail(Email.getText().toString().trim());
                                     ac.setPassword(Password.getText().toString().trim());
-                                    ac.setCPassword(Cpassword.getText().toString().trim());
+                                   // ac.setCPassword(Cpassword.getText().toString().trim());
 
                                     dbref.push().setValue(ac);
-                                    Toast.makeText(getApplicationContext(),"Sucsess",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),"Sucsess singup",Toast.LENGTH_SHORT).show();
                                     ClearControls();
                                     Intent intent=new Intent(MainActivity.this,Switch.class);
                                     startActivity(intent);
                                 }
-
-
                             }
                         });
-
                     }
-
-
-
-
-
-
-
             }
 
         });
+        //Login Text view Button
         textlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,12 +104,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(ilogin);
             }
         });
-
-
-
     }
 
-
+  //keyboard input clear method
     private void ClearControls(){
         FirstName.setText("");
         LastName.setText("");
@@ -132,6 +115,4 @@ public class MainActivity extends AppCompatActivity {
         Cpassword.setText("");
 
     }
-
-
 }

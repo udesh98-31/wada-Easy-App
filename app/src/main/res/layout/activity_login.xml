@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/serl"
     tools:context=".LoginActivity">
 
     <LinearLayout
@@ -67,8 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
 
-            android:tint="#AD1452"
-            app:srcCompat="@drawable/ic_imail" />
+            app:srcCompat="@drawable/ic_imail"
+            app:tint="#AD1452" />
 
         <ImageView
             android:id="@+id/imageView10"
@@ -76,8 +76,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="33dp"
 
-            android:tint="#AD1452"
-            app:srcCompat="@drawable/ic_lock" />
+            app:srcCompat="@drawable/ic_lock"
+            app:tint="#AD1452" />
     </LinearLayout>
 
     <TextView
@@ -89,22 +89,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.205" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="126dp"
-        android:layout_height="149dp"
-        android:tint="#AD1452"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/ic_lock" />
+        app:layout_constraintVertical_bias="0.245" />
 
     <TextView
         android:id="@+id/txvLogin"
@@ -119,5 +106,16 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <ImageView
+        android:id="@+id/imageView34"
+        android:layout_width="192dp"
+        android:layout_height="112dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/ic_unlock" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

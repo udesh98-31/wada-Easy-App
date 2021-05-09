@@ -19,37 +19,37 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class wantedlistview extends AppCompatActivity {
-    ListView listviewwanted;
+public class FeedbackView extends AppCompatActivity {
+
+    ListView listviewfeedback;
     DatabaseReference refdb;
     ArrayList<String> arrayList=new ArrayList<String>();
     ArrayAdapter<String> arrayAdapter;
-    ImageView backbtnSR,myserviceSR,appoimentSR;
+    ImageView backbtnFD,myserviceFD,appoimentFD;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wantedlistview);
+        setContentView(R.layout.feedbackview);
 
-        listviewwanted=(ListView) findViewById(R.id.wantedlistV);
-        backbtnSR=findViewById(R.id.srbackbt);
-        myserviceSR=findViewById(R.id.srmyservice);
-        appoimentSR=findViewById(R.id.Appoimentsr);
+        listviewfeedback=(ListView) findViewById(R.id.Feedbacklistview);
+        backbtnFD=findViewById(R.id.FDback);
+        myserviceFD=findViewById(R.id.FDmyservice);
+        appoimentFD=findViewById(R.id.FDappoiment);
 
-
-
-        refdb= FirebaseDatabase.getInstance().getReference().child("Client");
+        refdb= FirebaseDatabase.getInstance().getReference().child("FeedbackDetails");
         refdb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String location1=snapshot.child("location").getValue().toString();
-                String phone1=snapshot.child("phone").getValue().toString();
-                String name1=snapshot.child("name").getValue().toString();
-                String RequestService=snapshot.child("serviceType").getValue().toString();
+                String Email=snapshot.child("email").getValue().toString();
+                String msg=snapshot.child("message").getValue().toString();
+                String name=snapshot.child("name").getValue().toString();
 
-                arrayList.add("Location:"+location1+"\n"+"Name:"+name1+"\n"+"Contact:"+phone1+"\n"+RequestService);
-                arrayAdapter = new ArrayAdapter<String>(wantedlistview.this, android.R.layout.simple_list_item_1,arrayList);
-                listviewwanted.setAdapter(arrayAdapter);
+                arrayList.add("Name-"+name+"\n"+"Email-"+Email+"\n"+"\n"+msg);
+                arrayAdapter = new ArrayAdapter<String>(FeedbackView.this, android.R.layout.simple_list_item_1,arrayList);
+                listviewfeedback.setAdapter(arrayAdapter);
 
 
             }
@@ -74,25 +74,27 @@ public class wantedlistview extends AppCompatActivity {
 
             }
         });
-        backbtnSR.setOnClickListener(new View.OnClickListener() {
+
+        //nav button
+        backbtnFD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(wantedlistview.this,ServiceHome2.class);
+                Intent intent =  new Intent(FeedbackView.this,ServiceHome2.class);
                 startActivity(intent);
             }
         });
 
-        myserviceSR.setOnClickListener(new View.OnClickListener() {
+        myserviceFD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(wantedlistview.this,ServiceView.class);
+                Intent intent =  new Intent(FeedbackView.this,ServiceView.class);
                 startActivity(intent);
             }
         });
-        appoimentSR.setOnClickListener(new View.OnClickListener() {
+        appoimentFD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(wantedlistview.this,AppoimentVIewS.class);
+                Intent intent =  new Intent(FeedbackView.this,AppoimentVIewS.class);
                 startActivity(intent);
             }
         });

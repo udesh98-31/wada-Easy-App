@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/singin"
     tools:context=".MainActivity">
 
 
@@ -87,10 +87,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.096" />
+        app:layout_constraintVertical_bias="0.091" />
 
     <LinearLayout
         android:layout_width="69dp"
@@ -154,11 +154,11 @@
         android:layout_height="71dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.336"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.117"
-        app:srcCompat="@drawable/psing" />
+        app:layout_constraintVertical_bias="0.409"
+        app:srcCompat="@drawable/ic_singp" />
 
     <TextView
         android:id="@+id/tvlogin"
@@ -167,6 +167,7 @@
         android:text="@string/accouthave"
         android:textColor="#3F51B5"
         android:textColorLink="#3F51B5"
+        android:textSize="18sp"
         app:drawableTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

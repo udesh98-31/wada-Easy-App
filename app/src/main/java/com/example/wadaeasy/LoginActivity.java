@@ -31,11 +31,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //database authontication
         mFirebaseAuth=FirebaseAuth.getInstance();
+        //layout value catch
         LoginEmail=findViewById(R.id.Lmaill);
         LoginPassword=findViewById(R.id.Lpassword);
         tvLogin=findViewById(R.id.txvLogin);
-
         btnlogin=findViewById(R.id.btlogin);
 
         mAuthStateListener=new FirebaseAuth.AuthStateListener() {
@@ -47,15 +48,16 @@ public class LoginActivity extends AppCompatActivity {
                     Intent i = new Intent(LoginActivity.this, Switch.class);
                     startActivity(i);
                 }
-                else{
+               /* else{
                     Toast.makeText(LoginActivity.this, "plz Loged in", Toast.LENGTH_SHORT).show();
 
 
 
 
-                }
+                }*/
             }
         };
+        //Login button onclick and input fild validation
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +98,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+        //Sign up link textview
         tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,12 +110,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-    /*
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mFirebaseAuth.addAuthStateListener(mAuthStateListener);
-    }
-*/
+
 
 }
