@@ -7,11 +7,12 @@ import androidx.test.rule.ActivityTestRule;
 import junit.framework.TestCase;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-public class addAppointmentTest extends TestCase {
+public class addAppointmentTest {
 
     @Rule
     public ActivityTestRule<addAppointment> mainTestRule = new ActivityTestRule<addAppointment>(addAppointment.class);
@@ -28,7 +29,7 @@ public class addAppointmentTest extends TestCase {
     public void testLaunchofSecondActivity(){
         //if not null the activity has launched
         View view=mActivity.findViewById(R.id.ap_confirm);
-        assertNotNull(view);
+        Assert.assertNotNull(view);
 
 
 
