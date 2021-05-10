@@ -27,7 +27,7 @@
     <string name="To">To</string>
     <string name="Name" />
     <string name="Area1input" />
-    <string name="AddNew"/>
+    <string name="AddNew" />
     <string name="Area2input" />
     <string name="ServiceCharge">Service Charge (Per Hour) :</string>
     <string name="ServiceQulification">Service Qulification :</string>
@@ -94,8 +94,6 @@
     <string name="charge">Working Charge Per Hour (LKR) :</string>
     <string name="ChargeView" />
     <string name="MyService">My Service</string>
-
-
 
 
     <string-array name="service">
@@ -224,6 +222,13 @@
     <string name="invalid_name">Please Enter Valid Name</string>
     <string name="invalid_mobile">Please Enter a Valid Number</string>
     <string name="ratingbtn">Rate Us</string>
+    <string name="AddService4">Add Service</string>
+    <string name="rowviewbtn">View</string>
+    <string name="RowBtn">View</string>
+    <string name="AvailableService">Available Services</string>
+    <string name="WorkingAreasRow">Working Areas</string>
+    <string name="GetQut">GET QUOTE</string>
+    <string name="Bookbtn">BOOK</string>
 
 
 </resources>

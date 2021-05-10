@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -39,7 +40,7 @@ TextView etime;
 int hr,min;
 Button main,home,ap,fd;
 boolean isopen;
-
+ImageView homebtnd,backbtnd,appoinmentbtd,addbtnd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +49,21 @@ boolean isopen;
         this.setTitle("වැඩ Easy - Add Service");
 
 
-
+        //drop down menu
         Spinner service = (Spinner) findViewById(R.id.spinner1);
-        ArrayAdapter<String> myadapter = new ArrayAdapter<>(com.example.wadaeasy.AddService1.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.service));
+        ArrayAdapter<String> myadapter = new ArrayAdapter<>(com.example.wadaeasy.AddService1.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.service));
         myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         service.setAdapter(myadapter);
 
+        //Navigation bar
+
+        homebtnd = findViewById(R.id.homebtd);
+        backbtnd = findViewById(R.id.backbtd);
+        appoinmentbtd = findViewById(R.id.appoimentbtd);
+        addbtnd =findViewById(R.id.addserd);
+
+        //inputs and submit
         Next =findViewById(R.id.next);
         etime=findViewById(R.id.end);
         stime=findViewById(R.id.start);
@@ -66,7 +76,7 @@ boolean isopen;
 
 
 
-
+        //working time
         etime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +100,7 @@ boolean isopen;
             }
         });
 
+        //working time
         stime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +123,7 @@ boolean isopen;
                 timePickerDialog.show();
             }
         });
-
+        //Data send for next page
         Next.setOnClickListener(
                 new View.OnClickListener(){
 
@@ -150,37 +161,44 @@ boolean isopen;
                         }
                     }
                 });
-        main=findViewById(R.id.addbtn);
-        home=findViewById(R.id.homebtn);
-        ap=findViewById(R.id.apoimentBtn);
-        fd = findViewById(R.id.feedback);
-
-        isopen = false;
-        main.setOnClickListener(new View.OnClickListener() {
+        
+        //Navigation Bar
+        homebtnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent =  new Intent(AddService1.this,ServiceHome2.class);
+                startActivity(intent);
 
-                if(isopen){
-                    home.setVisibility(v.INVISIBLE);
-                    ap.setVisibility(v.INVISIBLE);
-                    fd.setVisibility(v.INVISIBLE);
 
-                    isopen = false;
-                }else{
-                    home.setVisibility(v.VISIBLE);
-                    ap.setVisibility(v.VISIBLE);
-                    fd.setVisibility(v.VISIBLE);
-
-                    isopen = true;
-                }
             }
         });
-        //Home Navigation
-        home.setOnClickListener(new View.OnClickListener() {
+
+
+        appoinmentbtd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddService1.this,ServiceHome2.class);
+                Intent intent =  new Intent(AddService1.this,AppoimentVIewS.class);
                 startActivity(intent);
+
+
+            }
+        });
+        backbtnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(AddService1.this,ServiceHome2.class);
+                startActivity(intent);
+
+
+            }
+        });
+        addbtnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(AddService1.this,ServiceView.class);
+                startActivity(intent);
+
+
             }
         });
 

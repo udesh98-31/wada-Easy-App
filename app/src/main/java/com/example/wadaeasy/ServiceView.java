@@ -1,8 +1,10 @@
 package com.example.wadaeasy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -59,6 +61,7 @@ boolean isopen;
         setContentView(R.layout.activity_service_view);
         this.setTitle("වැඩ Easy - My Service");
 
+        //get current user id
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
 
@@ -84,6 +87,7 @@ boolean isopen;
 
 
                 refdb = FirebaseDatabase.getInstance().getReference().child("Service").child(uid);
+                //Retrieve data from database
                 refdb.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -106,7 +110,9 @@ boolean isopen;
                         String c = snapshot.child("charge").getValue().toString();
                         String More = snapshot.child("infomation").getValue().toString();
 
+                        
 
+                        //set for input fields
                         day1.setText(dy1);
                         day2.setText(dy2);
                         day3.setText(dy3);
@@ -128,6 +134,7 @@ boolean isopen;
 
                         imgdb =FirebaseDatabase.getInstance().getReference().child("ProfileImage").child(uid);
                         imageView=findViewById(R.id.imageView6);
+                        //profile image display
                         imgdb.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -142,9 +149,12 @@ boolean isopen;
                         });
                         Update = findViewById(R.id.update);
 
+                        //pass data to update page
                         Update.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+
+
                                 Intent intent = new Intent(ServiceView.this, Update.class);
                                 intent.putExtra("NAME", name.getText().toString());
                                 intent.putExtra("AREA1", Area1.getText().toString());
@@ -176,8 +186,26 @@ boolean isopen;
 
                     }
                 });
+            //Delete My Service
+        Delete= findViewById(R.id.Delete);
+        Delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(ServiceView.this);
+                builder.setMessage("Are You  Sure Delete Service ? ")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                    refdb.removeValue();
+                                    Intent intent = new Intent(ServiceView.this,AddService1.class);
+                                    startActivity(intent);
+                            }
+                        }).setNegativeButton("No", null);
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
 
     }
 
