@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ClientDashboard extends AppCompatActivity {
-    Button addRequest, addApp,addfeedbackbt,addratebt;
+    Button addRequest, addApp,addfeedbackbt,addratebt,searchbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,15 @@ public class ClientDashboard extends AppCompatActivity {
         addApp = findViewById(R.id.button11);
         addfeedbackbt = findViewById(R.id.button14);
         addratebt = findViewById(R.id.rating);
+        searchbtn= findViewById(R.id.button4);
+
+        searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClientDashboard.this,SearchService.class);
+                startActivity(intent);
+            }
+        });
 
         addRequest.setOnClickListener(new View.OnClickListener() {
             @Override

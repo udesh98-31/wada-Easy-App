@@ -1,5 +1,6 @@
 package com.example.wadaeasy;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -8,6 +9,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,7 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Update2 extends AppCompatActivity {
     String name;
-    String serviceType;
     String area1;
     String area2;
     String e_time;
@@ -65,6 +66,7 @@ public class Update2 extends AppCompatActivity {
 
         }
 
+        //get 1st upadate page data
         Intent i = getIntent();
         e_time = i.getStringExtra("ETIME");
         name = i.getStringExtra("NAME");
@@ -99,6 +101,7 @@ public class Update2 extends AppCompatActivity {
         ser = new Service();
         dbref = FirebaseDatabase.getInstance().getReference().child("Service");
 
+        //Values set
         phone1.setText(ph1);
         phone2.setText(ph2);
         infomation.setText(more);
@@ -124,11 +127,16 @@ public class Update2 extends AppCompatActivity {
         if(Day7.equals("Sunday")){
             day7.setChecked(true);
         }
-
+        //Insert data for update and Validation
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(Update2.this);
+                builder.setMessage("Are You  Sure Update Service ? ")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(com.example.wadaeasy.Update2.this, ServiceHome2.class);
                 try {
                     if (!day1.isChecked()) {
@@ -205,6 +213,10 @@ public class Update2 extends AppCompatActivity {
                 }catch (NumberFormatException e){
                     Toast.makeText(getApplicationContext(),"Invalid",Toast.LENGTH_SHORT).show();
                 }
+                            }
+                        }).setNegativeButton("No", null);
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
 

@@ -35,9 +35,7 @@ public class Feedback extends AppCompatActivity {
         namedate = findViewById(R.id.cl_Name);
         emaildata = findViewById(R.id.email);
         messagedat = findViewById(R.id.feedback);
-
         submit = findViewById(R.id.button15);
-
         feedbackDetails = new FeedbackDetails();
         dbreff = FirebaseDatabase.getInstance().getReference().child("FeedbackDetails");
         dbreff.addValueEventListener(new ValueEventListener() {
@@ -53,10 +51,6 @@ public class Feedback extends AppCompatActivity {
 
             }
         });
-
-
-
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,45 +70,21 @@ public class Feedback extends AppCompatActivity {
                         feedbackDetails.setMessage(messagedat.getText().toString().trim());
 
                         dbreff.child(String.valueOf(maxid + 1)).setValue(feedbackDetails);
-
                         Toast.makeText(getBaseContext(),"Data Inserted Successfully",Toast.LENGTH_SHORT).show();
-
-
                         req_no=String.valueOf(maxid+1);
-
-                        //Intent intent = new Intent(v.getContext(),feedbackretrive.class);
-                        //intent.putExtra("number",req_no);
-                        //v.getContext().startActivity(intent);
-
-
-
                     }
-
-
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(),"Please enter a valid format",Toast.LENGTH_SHORT).show();
                 }catch (Exception e){
-
                 }
-
             }
-
         });
-
-
     }
 
-
-
     public void ClearControls(){
-
         namedate.setText(" ");
         emaildata.setText(" ");
         messagedat.setText(" ");
 
     }
-
-
-
-
-    }
+}

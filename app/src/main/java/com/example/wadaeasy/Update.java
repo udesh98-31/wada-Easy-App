@@ -41,8 +41,8 @@ public class Update extends AppCompatActivity {
     TextView stime;
     TextView etime;
     int hr,min;
-    Button main,home,ap,fd;
-    boolean isopen;
+
+
 
     ImageView homebtnd,backbtnd,appoinmentbtd,addbtnd;
 
@@ -59,7 +59,7 @@ public class Update extends AppCompatActivity {
 
 
 
-
+        //Service View Values
         Intent i = getIntent();
         name = i.getStringExtra("NAME");
         area1 = i.getStringExtra("AREA1");
@@ -96,6 +96,7 @@ public class Update extends AppCompatActivity {
         Charge.setText(charge);
         Qualification.setText(qul);
 
+        //Working Time
         etime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,6 +143,7 @@ public class Update extends AppCompatActivity {
             }
         });
 
+        //Input filed validation and Pass to data next page
         Next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,6 +190,7 @@ public class Update extends AppCompatActivity {
                 }
             }
         });
+        //Navigation bar buttons
         homebtnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

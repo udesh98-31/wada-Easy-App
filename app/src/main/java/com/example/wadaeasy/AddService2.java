@@ -82,6 +82,7 @@ EditText txt;
         setContentView(R.layout.activity_add_service2);
         this.setTitle("වැඩ Easy - Add Service");
 
+        //Service added successful Notification
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
 
             NotificationChannel channel = new NotificationChannel("Notification","Notification", NotificationManager.IMPORTANCE_DEFAULT);
@@ -92,9 +93,11 @@ EditText txt;
 
         progressDialog = new ProgressDialog(AddService2.this);
 
+        //Get current user id
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
 
+        //get 1st add service page data
         Intent i = getIntent();
         e_time = i.getStringExtra("ETIME");
         name = i.getStringExtra("NAME");
@@ -126,10 +129,11 @@ EditText txt;
         dbref2 = FirebaseDatabase.getInstance().getReference().child("ProfileImage");
 
 
-
+        //Insert data and Validation
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 Intent intent = new Intent(com.example.wadaeasy.AddService2.this, ServiceHome2.class);
                 try {
@@ -250,6 +254,7 @@ EditText txt;
 
 
     }
+    //Clear Inputs
     private void clear(){
         day1.setChecked(false);
         day2.setChecked(false);
@@ -262,7 +267,7 @@ EditText txt;
         phone2.setText("");
         infomation.setText("");
     }
-
+    //Profile Image Upload
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 

@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WadaEasy">
-        <activity android:name=".FeedbackView"></activity>
-        <activity android:name=".CustomerRequestService" />
+        <activity android:name=".Quote_service"></activity>
         <activity android:name=".ServiceHome2" />
         <activity android:name=".ServiceView" />
         <activity android:name=".clientHome" />
@@ -42,7 +41,9 @@
         <activity android:name=".Appointment_confirm" />
         <activity android:name=".view_appoint" />
         <activity android:name=".Client_calculation" />
-        <activity android:name=".wantedlistview" />
+        <activity android:name=".wantedlistview"></activity>
+        <activity android:name=".SearchService"></activity>
+        <activity android:name=".ServiceView_Client" />
         <activity android:name=".AddService2" />
         <activity android:name=".AddService1" />
     </application>
