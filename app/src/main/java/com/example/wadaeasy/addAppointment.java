@@ -63,7 +63,7 @@ public class addAppointment extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    maxid=(snapshot.getChildrenCount());
+                    maxid=(snapshot.getChildrenCount());//get maxid
                 }
             }
 

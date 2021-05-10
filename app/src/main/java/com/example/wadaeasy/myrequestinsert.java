@@ -193,13 +193,6 @@ public class myrequestinsert extends AppCompatActivity {
                         Intent intent = new Intent(v.getContext(),Request_confirm.class);
                         intent.putExtra("number",req_no);
                         v.getContext().startActivity(intent);
-
-
-
-
-
-
-
                     }
 
 
@@ -252,8 +245,6 @@ public class myrequestinsert extends AppCompatActivity {
         });
 
     }
-
-
         public void onCancle(View view){
             ClearControls();
             Intent intent = new Intent(this,MyRequest.class);

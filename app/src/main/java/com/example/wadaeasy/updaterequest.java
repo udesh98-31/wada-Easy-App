@@ -25,7 +25,6 @@ public class updaterequest extends AppCompatActivity {
     Button Edit;
     DatabaseReference dbreff;
     Client client;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +50,6 @@ public class updaterequest extends AppCompatActivity {
         dbreff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
                 String category = snapshot.child("category").getValue().toString();
                 String phone = snapshot.child("phone").getValue().toString();
                 String serviceType = snapshot.child("serviceType").getValue().toString();
@@ -69,8 +66,6 @@ public class updaterequest extends AppCompatActivity {
                 txtphone.setText(phone);
                 txtservicetype.setText(serviceType);
 
-
-
             }
 
             @Override
@@ -78,7 +73,6 @@ public class updaterequest extends AppCompatActivity {
 
             }
         });
-
 
         Edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,18 +90,13 @@ public class updaterequest extends AppCompatActivity {
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                         if(snapshot.hasChild(a1)){
-
                                             try{
-
                                                 client.setName(txtname.getText().toString().trim());
                                                 client.setLocation(txtlocation.getText().toString().trim());
                                                 client.setCategory(txtcategory.getText().toString().trim());
                                                 client.setDate(txtdate.getText().toString().trim());
                                                 client.setPhone(Integer.parseInt(txtphone.getText().toString().trim()));
                                                 client.setServiceType(txtservicetype.getText().toString().trim());
-
-
-
 
                                                 dbreff.child(a1).setValue(client);
                                                 ClearControls();
@@ -131,16 +120,9 @@ public class updaterequest extends AppCompatActivity {
                         }).setNegativeButton("No", null);
                             AlertDialog alert = builder.create();
                             alert.show();
-
-
-
             }
         });
     }
-
-
-
-
     public void Cancel(View view){
         Intent intent=new Intent(this, Request_confirm.class);
         //intent.putExtra("number",a1);
