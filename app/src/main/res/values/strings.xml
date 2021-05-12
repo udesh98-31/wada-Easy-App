@@ -229,6 +229,7 @@
     <string name="WorkingAreasRow">Working Areas</string>
     <string name="GetQut">GET QUOTE</string>
     <string name="Bookbtn">BOOK</string>
+    <string name="ServiceViewClient">Service</string>
 
 
 </resources>
