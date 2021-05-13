@@ -204,7 +204,7 @@ ImageView homebtnd,backbtnd,appoinmentbtd,addbtnd;
 
 
     }
-
+    //Clear Controls
     private void  clear(){
         name.setText("");
         area1.setText("");
