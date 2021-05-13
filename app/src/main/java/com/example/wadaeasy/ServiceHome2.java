@@ -58,8 +58,8 @@ FirebaseAuth mAuth;
         Feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ServiceHome2.this,FeedbackView.class);
-                startActivity(intent);
+                Intent intent2=new Intent(ServiceHome2.this,FeedbackView.class);
+                startActivity(intent2);
 
             }
         });

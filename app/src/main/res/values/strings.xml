@@ -229,6 +229,11 @@
     <string name="WorkingAreasRow">Working Areas</string>
     <string name="GetQut">GET QUOTE</string>
     <string name="Bookbtn">BOOK</string>
+    <string name="cancelappoiment">Cancel Appoiment</string>
+    <string name="msgforprovider">If You want any other clarify please Contact Customer</string>
+    <string name="customer" />
+    <string name="cusfeedback">Customer Feedback</string>
+    <string name="ServiceREq">Service Request</string>
 
 
 </resources>

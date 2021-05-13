@@ -38,10 +38,11 @@
         <activity android:name=".UpdateConfirmation" />
         <activity android:name=".addAppointment" />
         <activity android:name=".Edit_appoin" />
+        <activity android:name=".wantedlistview" />
+        <activity android:name=".FeedbackView" />
         <activity android:name=".Appointment_confirm" />
         <activity android:name=".view_appoint" />
         <activity android:name=".Client_calculation" />
-        <activity android:name=".wantedlistview"></activity>
         <activity android:name=".SearchService"></activity>
         <activity android:name=".ServiceView_Client" />
         <activity android:name=".AddService2" />

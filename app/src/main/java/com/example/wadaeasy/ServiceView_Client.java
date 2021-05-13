@@ -40,6 +40,7 @@ public class ServiceView_Client extends AppCompatActivity {
     DatabaseReference imgdb;
     DatabaseReference refdb;
     Button Qut;
+    int c1;
 
 
     @Override
@@ -99,6 +100,8 @@ public class ServiceView_Client extends AppCompatActivity {
                 String c = snapshot.child("charge").getValue().toString();
                 String More = snapshot.child("infomation").getValue().toString();
 
+                c1=Integer.parseInt(c);
+
                 //set for input fields
                 day1.setText(dy1);
                 day2.setText(dy2);
@@ -149,7 +152,7 @@ public class ServiceView_Client extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1=new Intent(ServiceView_Client.this,Quote_service.class);
-                intent1.putExtra("CHARGE",ch.getText().toString());
+                intent1.putExtra("Int",c1);
                 startActivity(intent1);
             }
         });

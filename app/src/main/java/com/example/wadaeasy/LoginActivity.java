@@ -48,13 +48,13 @@ public class LoginActivity extends AppCompatActivity {
                     Intent i = new Intent(LoginActivity.this, Switch.class);
                     startActivity(i);
                 }
-               /* else{
+                else{
                     Toast.makeText(LoginActivity.this, "plz Loged in", Toast.LENGTH_SHORT).show();
 
 
 
 
-                }*/
+                }
             }
         };
         //Login button onclick and input fild validation
