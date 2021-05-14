@@ -17,7 +17,7 @@ public class Quote_service extends AppCompatActivity {
     Button Calculetebtn;
     EditText hrstext;
     int charge1,Results,hr;
-   // quo q1;
+
 
 
 
@@ -26,18 +26,12 @@ public class Quote_service extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quote_service);
 
-        //q1=new  quo();
+
         Calculetebtn=findViewById(R.id.Calculetebt);
         hrstext=(EditText) findViewById(R.id.hrstext);
 
 
 
-
-
-
-
-
-        ;
 
         Calculetebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +43,8 @@ public class Quote_service extends AppCompatActivity {
                 Intent intent=getIntent();
                 charge1=intent.getIntExtra("Int",defaultValue);
 
-                Results=(charge1*hr);
+                //Results=(charge1*hr);
+                Results=calcharge(charge1,hr);
 
                 chrage=String.valueOf(Results);
 
@@ -66,4 +61,8 @@ public class Quote_service extends AppCompatActivity {
             }
         });
     }
+protected  int calcharge(int x,int y){
+        return x*y;
+}
+
 }

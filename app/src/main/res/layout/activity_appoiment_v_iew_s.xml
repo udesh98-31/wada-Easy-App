@@ -5,7 +5,8 @@
     android:id="@+id/backbtBR"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AppoimentVIewS">
+    tools:context=".AppoimentVIewS"
+    android:background="#f3e5f5">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:background="#FFFFFF"
+            android:background="#f3e5f5"
             android:text="@string/BookinREq"
             android:textColor="#000000"
             android:textSize="30sp"

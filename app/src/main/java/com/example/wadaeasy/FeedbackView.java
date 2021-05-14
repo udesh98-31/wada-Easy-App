@@ -47,7 +47,7 @@ public class FeedbackView extends AppCompatActivity {
                 String msg=snapshot.child("message").getValue().toString();
                 String name=snapshot.child("name").getValue().toString();
 
-                arrayList.add("Name-"+name+"\n"+"Email-"+Email+"\n"+"\n"+msg);
+                arrayList.add(name+ "  " + "  " + "  " + "  " +Email+"\n"+"\n"+msg);
                 arrayAdapter = new ArrayAdapter<String>(FeedbackView.this, android.R.layout.simple_list_item_1,arrayList);
                 listviewfeedback.setAdapter(arrayAdapter);
 
